@@ -1,6 +1,5 @@
 ---
-start: True
-title: "Welcome"
+title: "other lesson here"
 teaching: 15
 exercises: 0
 questions:

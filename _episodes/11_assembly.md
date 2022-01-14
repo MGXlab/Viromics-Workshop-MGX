@@ -1,6 +1,5 @@
 ---
-start: false
-title: "Afternoon break"
+title: "Assembly"
 exercises: 0
 teaching: 15
 keypoints:
