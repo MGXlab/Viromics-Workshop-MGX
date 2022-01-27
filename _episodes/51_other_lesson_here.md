@@ -1,5 +1,4 @@
 ---
-start: True
 title: "Alpha diversity"
 teaching: 15
 exercises: 0
