@@ -14,7 +14,7 @@ keypoints:
 ### Clustering sequences based on Gene content
 
 #### Preparations
-We provide an R script `day4_clustering.R` for today's analysis in `LOCATION OF SCRIPTS`. However if you are familiar with making heatmaps and clustering data in R (or any other language), please feel free to make your own script: we only provide a script to allow you focus on the underlying biology without being bogged down by boring programming.
+We provide an R script `day4_clustering.R` for today's analysis in `../code/day4`. However if you are familiar with making heatmaps and clustering data in R (or any other language), please feel free to make your own script: we only provide a script to allow you focus on the underlying biology without being bogged down by boring programming.
 
 For this part of the workshop you are going to use Rstudio and a number of packages ([Tidyverse](https://www.tidyverse.org/), [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/]). These have been installed in the `day4_clustering` conda environment, so we first activate it:
 
@@ -71,7 +71,7 @@ Find out of the terminase large subunit proteins are all in a single PC, or if t
 **TO DO**
 - add conda environment (Jeroen)
 - add solution code to annotation challenge
-- add binning information (Jeroen)
+
 
 ## Dropped because we switched to using bins instead of contigs:
 **Q:** What potential technical problems do you see with this approach?

@@ -14,7 +14,7 @@ keypoints:
 - ""
 
 ---
-0. install Vcontact2 & cytoscape
+0. install Vcontact2 & cytoscape  
 So the solution to get Vcontact2 running is:
 
 ```
@@ -36,7 +36,7 @@ $	mamba install numpy=1.19.5
 
 3. run Vcontact2 on the protein data.
 
-4. open cytoscape, load the network file, add the gene to genome mapping.
+4. open cytoscape, load the network file, add the gene to genome mapping.  
 Note: Cytoscape (in cytoscape conda env) is not working if you start it with `. cytoscape.sh:`
 ```
 Error occurred during initialization of boot layer

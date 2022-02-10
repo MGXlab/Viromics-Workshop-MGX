@@ -85,6 +85,7 @@ for_heatmap <-
   select(prot_wide, -bin_id) %>% 
   as.matrix()
 
+rownames(for_heatmap) <- prot_wide$bin_id
 # make heatmap object
 hmap <- Heatmap(for_heatmap, 
                 show_column_names = FALSE, 
