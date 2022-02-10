@@ -45,7 +45,7 @@ Follow the steps in the script to explore and clean up the data (lines 10-34 of 
 >{: .discussion}
 
 **Q: explain what you see?**  
-Answers:
+A:
 - Sparse clustering indicates high viral diversity.
 - Small clusters of sequences that share genes.
 
@@ -59,20 +59,24 @@ Now add the selected reference sequences with known taxonomy to your heatmap. Ca
 
 
 (Note: here we need to add the reference set, which is still to be determined by Dani.
-Previously I made a selection of RefSeq sequences by for each contig finding the closest RefSeq sequence (euclidean distance based on shared proteins, from the total set of protein clusters that are included in the heatmap -- so not total nr of proteins in a contig).
+Previously I made a selection of RefSeq sequences by finding for each contig the closest RefSeq sequence (euclidean distance based on shared proteins, from the total set of protein clusters that are included in the heatmap -- so not total nr of proteins in a contig). But we want to use the same set of RefSeq sequences for this heatmap and the tree.
 
 Observations:
 - most sequences do not cluster with a RefSeq sequence. So most viral diversity is uncharted and cannot be annotated in this way.
 
 
 #### Step 4. Add gene annotations ####
-Although there are no marker genes that are shared across all viruses or even bacteriophages, for some taxonomic groups there are (sets) or marker genes that can be used to reconstruct the phylogeny. Caudovirales share three such genes: portal, major capsid protein, and the terminase large subunit.
+Although there are no marker genes that are shared across all viruses or even bacteriophages, for some taxonomic groups there are (sets) of marker genes that can be used to reconstruct the phylogeny. For caudovirales there are three such genes: portal, major capsid protein, and the terminase large subunit.
 
 **Challenge:**
 Find out of the terminase large subunit proteins are all in a single PC, or if they are split accross many different PCs, for example by examining the clusters or annotating the heatmap columns. How does this influence the gene sharing approach we use here?
 
 
-## Not relevant anymore, since we use bins instead of contigs:
+**TO DO**
+- add conda environment (Jeroen)
+- add binning information (Jeroen)
+
+## Dropped because we switched to using bins instead of contigs:
 
 **What potential technical problems do you see with this approach?**
 

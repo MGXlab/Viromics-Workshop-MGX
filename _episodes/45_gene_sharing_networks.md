@@ -24,4 +24,13 @@ keypoints:
 7. How many contigs can be annotated with Vcontact2? At what taxonomic level?
 6. Try to find the contigs you've annotated in the previous steps. Where are they in this network? Can you annotate more or fewer contigs/bins? Interpret your results.
 
+
+
+**TO DO**
+- make conda environment (jeroen)
+- add links to manual & paper (jeroen)
+- add terminal commands (jeroen)
+- run vcontact on contigs or bins?
+- check running time for bins (Jeroen)
+- add description of how to open & navigate Cytoscape (manual sucks, Jeroen)
 {% include links.md %}
