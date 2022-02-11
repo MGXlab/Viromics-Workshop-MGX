@@ -1,12 +1,12 @@
 ---
-title: "Clustering contigs based on shared protein clusters"
+title: "Clustering viral sequences based on shared proteins"
 teaching: 0
 exercises: 60
 questions:
-- "Can we cluster viral contigs based on shared protein clusters?"
+- "Can we cluster viral sequences based on shared protein clusters?"
 objectives:
-- "Identify protein clusters (PCs) that are shared between contigs"
-- "Infer taxonomy of contig clusters by adding RefSeq genomes with known taxonomy"
+- "Identify protein clusters (PCs) that are shared between sequences"
+- "Infer taxonomy of viral clusters by adding RefSeq genomes with known taxonomy"
 keypoints:
 - ""
 
@@ -14,7 +14,7 @@ keypoints:
 ### Clustering sequences based on Gene content
 
 #### Preparations
-We provide an R script `day4_clustering.R` for today's analysis in `../code/day4`. However if you are familiar with making heatmaps and clustering data in R (or any other language), please feel free to make your own script: we only provide a script to allow you focus on the underlying biology without being bogged down by boring programming.
+We provide an R script `day4_clustering.R` for today's analysis in `../code/day4` (actually I think the students don't have access to the github? How will we provide the code/data?). However if you are familiar with making heatmaps and clustering data in R (or any other language), please feel free to make your own script: we only provide a script to allow you focus on the underlying biology without being bogged down by boring programming.
 
 For this part of the workshop you are going to use Rstudio and a number of packages ([Tidyverse](https://www.tidyverse.org/), [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/]). These have been installed in the `day4_clustering` conda environment, so we first activate it:
 
@@ -23,11 +23,11 @@ For this part of the workshop you are going to use Rstudio and a number of packa
 $ conda activate day4_rstudio
 
 # Create a directory to keep your files and move to it
-$ mkdir day4
-$ cd day4
+(day4_rstudio) $ mkdir day4
+(day4_rstudio) $ cd day4
 
 # Start Rstudio
-$ rstudio &
+(day4_rstudio) $ rstudio &
 ~~~
 {: .bash}
 
@@ -39,13 +39,10 @@ First, load the libraries and read the data from `annotated_clusters.txt` in R. 
 #### Step 2. Cluster contigs based on gene content
 Follow the steps in the script to explore and clean up the data (up to line 40). Finally, cluster the assembled contigs based on protein clusters (PCs).   
 
->## Question: Clustering contigs based on shared protein clusters
-> Try a few different length cutoffs. Explain what you see
->
+>## Discussion: Clustering contigs based on shared protein clusters
+> Try a few different length cutoffs and look at the heatmap. Explain what you see.
 >{: .discussion}
 
-**Q: explain what you see?**  
-A:
 - Sparse clustering indicates high viral diversity. Contigs share only a very limited set of proteins.
 - There are small clusters of sequences that share genes. Are these viral families? Genera? Let's try to find out!
 
@@ -64,9 +61,12 @@ Observations:
 #### Step 4. Add gene annotations ####
 Although there are no marker genes that are shared across all viruses or even bacteriophages (like 16S for prokaryotes), for some taxonomic groups there are (sets) of marker genes that can be used to reconstruct the phylogeny. For *caudovirales* there are three such genes: portal, major capsid protein, and the terminase large subunit.
 
-**Challenge:**
-Find out of the terminase large subunit proteins are all in a single PC, or if they are split across many different PCs, for example by examining the clusters or annotating the heatmap columns (take a look at the [ComplexHeatmap documentation](https://jokergoo.github.io/ComplexHeatmap-reference/book/) to see how to do this). How does this influence the gene sharing approach we use here?
-
+> ## Challenge: annotating the heatmap with protein function
+>Find out of the terminase large subunit proteins are all in a single PC, or if they are split across many different PCs, for example by examining the clusters or annotating the heatmap columns (take a look at the [ComplexHeatmap documentation](https://jokergoo.github.io/ComplexHeatmap-reference/book/) to see how to do this). How does this influence the gene sharing approach we use here?
+> > ## solution
+> > to do: add R code
+> {: .solution}
+{: .challenge}
 
 **TO DO**
 - add conda environment (Jeroen)
