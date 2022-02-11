@@ -41,7 +41,7 @@ Follow the steps in the script to explore and clean up the data (up to line 40).
 
 >## Discussion: Clustering contigs based on shared protein clusters
 > Try a few different length cutoffs and look at the heatmap. Explain what you see.
->{: .discussion}
+{: .discussion}
 
 - Sparse clustering indicates high viral diversity. Contigs share only a very limited set of proteins.
 - There are small clusters of sequences that share genes. Are these viral families? Genera? Let's try to find out!
