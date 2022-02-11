@@ -1,5 +1,5 @@
 ---
-title: "Protein trees based on a marker protein"
+title: "Phylogeny based on marker genes"
 teaching: 0
 exercises: 60
 questions:

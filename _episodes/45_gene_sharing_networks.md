@@ -3,8 +3,10 @@ title: "Gene sharing networks with Vcontact2"
 teaching: 15
 exercises: 15
 questions:
-- "For how many of the contigs can we assign a genus-level taxonomic annotation?"
-- "Are there conflicts with the gene tree?"
+- "How do we run Vcontact2 and Cytoscape?"
+- "What are the signals Vcontact2 uses to infer taxonomy?"
+- "To how many contigs can we assign a genus-level taxonomic annotation?"
+- "How does this compare to other tools?"
 
 objectives:
 - "Run Vcontact2"
