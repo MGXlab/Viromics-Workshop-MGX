@@ -8,7 +8,7 @@ objectives:
 - "Identify protein clusters (PCs) that are shared between sequences"
 - "Infer taxonomy of viral clusters by adding RefSeq genomes with known taxonomy"
 keypoints:
-- ""
+-
 
 ---
 ### Clustering sequences based on Gene content
@@ -41,10 +41,14 @@ Follow the steps in the script to explore and clean up the data (up to line 40).
 
 >## Discussion: Clustering contigs based on shared protein clusters
 > Try a few different length cutoffs and look at the heatmap. Explain what you see.
+> > ## Solution
+> > We observe:
+> > - Sparse clustering indicates high viral diversity. Sequences seem to share only a very limited set of proteins.
+> > - Small clusters of sequences that share genes. Are these viral families? Genera? Let's try to find out!
+> {: .solution}
 {: .discussion}
 
-- Sparse clustering indicates high viral diversity. Contigs share only a very limited set of proteins.
-- There are small clusters of sequences that share genes. Are these viral families? Genera? Let's try to find out!
+
 
 To annotate our contigs, we need to **add sequences with known taxonomy**.
 
@@ -61,12 +65,16 @@ Observations:
 #### Step 4. Add gene annotations ####
 Although there are no marker genes that are shared across all viruses or even bacteriophages (like 16S for prokaryotes), for some taxonomic groups there are (sets) of marker genes that can be used to reconstruct the phylogeny. For *caudovirales* there are three such genes: portal, major capsid protein, and the terminase large subunit.
 
-> ## Challenge: annotating the heatmap with protein function
+> ## Challenge: Annotating the heatmap with protein function
 >Find out of the terminase large subunit proteins are all in a single PC, or if they are split across many different PCs, for example by examining the clusters or annotating the heatmap columns (take a look at the [ComplexHeatmap documentation](https://jokergoo.github.io/ComplexHeatmap-reference/book/) to see how to do this). How does this influence the gene sharing approach we use here?
 > > ## solution
 > > to do: add R code
 > {: .solution}
 {: .challenge}
+
+>## Discussion: What does this all mean?
+> How does the diversity within protein families (clusters) relate to viral taxonomy (and the sparseness of the sampled of viral diversity in the online databases)?
+{: .discussion}
 
 **TO DO**
 - add conda environment (Jeroen)
@@ -77,9 +85,6 @@ Although there are no marker genes that are shared across all viruses or even ba
 **Q:** What potential technical problems do you see with this approach?
 - contigs could be **genome fragments** rather than complete genomes, which would limit clustering (not true if using bins)  
 - protein clustering could not be sensitive enough, e.g. homologous proteins (such as terminase large subunit) could be split across different PCs, which would display as a lack of clustering.
-
-**Discussion point:**
-How does the diversity within protein families (clusters) relate to viral taxonomy (and the sparseness of sampling of viral diversity)?
 
 
 #### Challenge: add CheckV completeness estimations to the heatmap (checkv doesn't work on bins)####
