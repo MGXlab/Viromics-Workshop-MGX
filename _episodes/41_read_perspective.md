@@ -1,5 +1,4 @@
 ---
-start: True
 title: "Read and discuss Dulith et al 2021"
 teaching: 0
 exercises: 90

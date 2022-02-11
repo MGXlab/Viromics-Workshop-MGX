@@ -4,7 +4,6 @@ teaching: 0
 exercises: 60
 questions:
 - "Can we use marker genes to infer phylogeny and taxonomy?"
-
 objectives:
 - "Make a phylogeny based on terminase large subunit"
 
