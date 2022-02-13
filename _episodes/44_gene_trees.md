@@ -11,15 +11,22 @@ keypoints:
 - ""
 
 ---
-### Add to day 3:
-This are proteins coming from a reference set that we will use tomorrow. Add them to your already predicted proteins and annotate them with a function...
+
 
 ### Step 0. Activate conda environment
 ```
 $ conda activate day4_phyl
 ```
 
-### Step 1. Gather terminase proteins.
+### Step 1. Gather large terminase proteins from the bins and database
+First you need to gather the large terminase sequences from your bins and from the reference database. To do the latter, go to [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/)
+
+First, put in the file `terl_bins.faa` all the terminases predicted in the bins. After this, you will download
+
+
+![Image]({{ page.root }}/fig/test_ncbi_virus.png)
+
+
 Take the proteins that were annotated as "terminase large subunit" yesterday. Add the crassvirales terminases from `crassvirales_terl.faa`. (maybe add script to do this).
 
 ### Step 2. Alignment
