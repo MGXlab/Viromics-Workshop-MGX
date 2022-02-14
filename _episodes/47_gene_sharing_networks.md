@@ -10,7 +10,7 @@ questions:
 
 objectives:
 - "Run Vcontact2"
-- "analyse the output with Cytoscape"
+- "Analyse the output with Cytoscape"
 
 keypoints:
 - ""
@@ -50,7 +50,7 @@ Note: Possibly Cytoscape (in cytoscape conda env) is not working if you start it
 Error occurred during initialization of boot layer
 java.lang.module.FindException: Module javafx.web not found
 ```
-Running it by directly calling `/home/jeroen/miniconda3/envs/cytoscape/share/cytoscape-3.9.1-0/Cytoscape` does work.
+Running it by directly calling `[MY_CONDA_PATH]/envs/cytoscape/share/cytoscape-3.9.1-0/Cytoscape` does work.
 
 ### 5. Remove duplicate links and self loops.
 Check steps 5 and later from this [walkthrough](https://www.protocols.io/view/applying-vcontact-to-viral-sequences-and-visualizi-x5xfq7n) to see how to do this
@@ -69,5 +69,5 @@ Check steps 5 and later from this [walkthrough](https://www.protocols.io/view/ap
 - make conda environment (jeroen)
 - should we run vcontact on contigs or bins?
 - check running time for bins (Jeroen)
-- Cytoscape interface isn't the most intuitive, I could write a short guide w/ figures on how to color nodes etc. 
+- Cytoscape interface isn't the most intuitive, I could write a short guide w/ figures on how to color nodes etc.
 {% include links.md %}
