@@ -16,7 +16,7 @@ keypoints:
 #### Preparations
 We provide an R script `day4_clustering.R` for today's analysis in `../code/day4` (actually I think the students don't have access to the github? How will we provide the code/data?). However if you are familiar with making heatmaps and clustering data in R (or any other language), please feel free to make your own script: we only provide a script to allow you focus on the underlying biology without being bogged down by boring programming.
 
-For this part of the workshop you are going to use Rstudio and a number of packages ([Tidyverse](https://www.tidyverse.org/), [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/]). These have been installed in the `day4_clustering` conda environment, so we first activate it:
+For this part of the workshop you are going to use Rstudio and a number of packages ([Tidyverse](https://www.tidyverse.org/), [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/]). Tidyverse and Rstudio have been installed in the  `day4_rstudio` conda environment, so we first activate it:
 
 ~~~
 # Activate the conda environment
@@ -30,6 +30,14 @@ $ conda activate day4_rstudio
 (day4_rstudio) $ rstudio &
 ~~~
 {: .bash}
+
+We then need to install the Complexheatmap package inside Rstudio:
+~~~
+install.packages("devtools")
+library(devtools)
+install_github("jokergoo/ComplexHeatmap")
+~~~
+{: .R}
 
 Open the `code/day4/clustering.R` script and follow the steps below.
 
