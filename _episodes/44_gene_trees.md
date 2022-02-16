@@ -19,22 +19,32 @@ $ conda activate day4_phyl
 ```
 
 ### Step 1. Gather large terminase proteins from the bins and database
-First you need to gather the large terminase sequences from your bins and from the reference database. To do the latter, go to [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/)
+First you need to gather the large terminase sequences from your bins and from the reference database. To do the latter, go to [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/) and follow steps below:
 
-First, put in the file `terl_bins.faa` all the terminases predicted in the bins. After this, you will download
+1. Click on 'Find Data' and then in 'All viruses' (A).
+2. Select only RefSeq genomes (B).
+3. In the 'Proteins' section (C), write __terminase__ and select 'terminase large subunit' from the drop-down menu (D).
+4. Then, click 'Download' (E). Select 'Protein', 'Download all records', 'Build custom', and add 'Family', 'Genus' and 'Species' by clicking 'Add' (F).  
+5. Click 'Download' and save the file to `refseq_terl.faa`.
 
+![Image]({{ page.root }}/fig/ncbi_virus.png)
 
-![Image]({{ page.root }}/fig/test_ncbi_virus.png)
+To gather the large terminases annotated in the bins, you can use the python script `gather_terminases_bins.py`. Have a look at the help message to see the parameters you need. Save the results in `bins_terl.faa`.
 
+~~~
+# Run the script get the bins terminases
+$ python gather_terminases_bins.py ...
+~~~
+{: .language-bash}
 
-Take the proteins that were annotated as "terminase large subunit" yesterday. Add the crassvirales terminases from `crassvirales_terl.faa`. (maybe add script to do this).
+After this, use `cat` to merge in the file `bins_refseq_terl.faa` the RefSeq terminases you downloaded and the terminases from the bins.
 
-### Step 2. Alignment
+### Step 2. Multiple sequence alignment
 Align the sequences using Mafft. Check the [Mafft manual](https://mafft.cbrc.jp/alignment/software/algorithms/algorithms.html).
 **Q:** Which method do you think best fits our data? Can you use one of the most accurate methods?
 
-### Step 3. Make the tree
-Use fasttree to construct the TerL phylogeny from the multiple sequence alignment (MSA).
+### Step 3. Infer the TerL phylogeny
+Use fasttree to infer the TerL phylogeny from the multiple sequence alignment.
 
 Use the script "create_itol_families_colors.py" to create an annotation file which you can use to decorate your tree. Once you have this, upload your treefile  to [iToL](https://itol.embl.de/). (explain a bit of iToL).
 Then, in the "Datasets" section upload your annotation file.
@@ -55,9 +65,9 @@ Go to the ICVT website and download the podoviridae report (to do: find link). H
 
 **To do:**
 - make conda environments (Jeroen)
-- make script to gather terl proteins (step 1, Dani)
-- add nucleotide-based protein annotation to day 3 (???)
-- make script for iTol decoration (Dani)
+- make script to gather terl proteins (step 1, Dani) - Done, script `gather_terminases_bins.py`
+- add nucleotide-based protein annotation to day 3 (???) - Not necessary, we download reference terminases directly from ncbi
+- make script for iTol decoration (Dani) - Done, script `create_itol_annots.py`
 - add explanation of iTol (step3, Dani?)
 - add link to podoviridae report (Jeroen)
 {% include links.md %}
