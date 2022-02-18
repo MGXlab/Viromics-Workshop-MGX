@@ -17,7 +17,7 @@ keypoints:
 
 Now that VirSorter has finished, take a look at the results (the main results file is called *VIRSorter_global-phage-signal.csv*. What kind of information can you find there?
 
-Because the output of VirSorter looks a lot different compared to the output of the other tools, we will first reformat it into a similar file. Download the script *reformat_virsorter_result.py* from [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/reformat_virsorter_result.py). This script will read in the VirSorter results, add the contigs that were not predicted as phages, and add an arbitrary score to each prediction. A phage annotation that was predicted as "sure" (categories 1 and 4) gets a score of 1.0, a "somewhat sure" (categories 2 and 5) prediction gets a score of 0.7, and a "not so sure" (categories 3 and 6) prediction gets a score of 0.51. All other sequences get a score of 0. 
+Because the output of VirSorter looks a lot different compared to the output of the other tools, we will first reformat it into a similar file. Download the script *reformat_virsorter_result.py* from [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_2/reformat_virsorter_result.py). This script will read in the VirSorter results, add the contigs that were not predicted as phages, and add an arbitrary score to each prediction. A phage annotation that was predicted as "sure" (categories 1 and 4) gets a score of 1.0, a "somewhat sure" (categories 2 and 5) prediction gets a score of 0.7, and a "not so sure" (categories 3 and 6) prediction gets a score of 0.51. All other sequences get a score of 0. 
 
 Do you think these score represent the predictions well? Why (not)?
 
