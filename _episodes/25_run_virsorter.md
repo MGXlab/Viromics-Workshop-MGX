@@ -38,9 +38,9 @@ $ make clean
 $ make
 
 # Make symbolic link of executable scripts in the environment's bin
-# It is important to use the absolute path and not the relative path to the Scripts folder
-$ ln -s ~/JenaViromics2022/day2/tools/VirSorter/wrapper_phage_contigs_sorter_iPlant.pl ~/miniconda/envs/virsorter/bin
-$ ln -s ~/JenaViromics2022/day2/tools/VirSorter/Scripts ~/miniconda/envs/virsorter/bin
+# It is important to use the absolute path and not the relative path to the Scripts folder (replace XXX with the number of your account, or replace the absolute path with the path to your own anaconda if you join online)
+$ ln -s ~/ViromicsCourse/day2/tools/VirSorter/wrapper_phage_contigs_sorter_iPlant.pl /mnt/local/prakXXX/anaconda3/envs/virsorter/bin
+$ ln -s ~/ViromicsCourse/day2/tools/VirSorter/Scripts /mnt/local/prakXXX/anaconda3/envs/virsorter/bin
 
 ~~~
 {: .language-bash}
@@ -59,16 +59,16 @@ Finally, run VirSorter. Note that VirSorter is very particular about its working
 ~~~
 # Run VirSorter
 # Under the argument --data-dir put the link https://blahblah.com/virsorter-data
-$ wrapper_phage_contigs_sorter_iPlant.pl -f ../../contigs_over_200.fasta --db 1 --wdir ../../results/virsorter --ncpu 1 --data-dir ./virsorter-data
+$ wrapper_phage_contigs_sorter_iPlant.pl -f ~/ViromicsCourse/day2/contigs_over_200.fasta --db 1 --wdir ~/ViromicsCourse/day2/results/virsorter --ncpu 1 --data-dir ./virsorter-data
 ~~~
 {: .language-bash}
 
 
-If your run fails because "Step 1 failed", then check the error file in ../../results/virsorter/logs/. If the error is "Can't locate Bio/Seq.pm in @inc (you may need to install the Bio::Seq module)...", then you need to copy a perl folder in the virsorter environment folder.
+If your run fails because "Step 1 failed", then check the error file in ~/ViromicsCourse/day2/results/virsorter/logs/. If the error is "Can't locate Bio/Seq.pm in @inc (you may need to install the Bio::Seq module)...", then you need to copy a perl folder in the virsorter environment folder.
 
 ~~~
 # Error fix for Can't locate Bio/Seq.pm in @inc
-$ cd ~/miniconda/envs/virsorter/lib/
+$ cd /mnt/local/prakXXX/anaconda3/envs/virsorter/lib/
 $ cp -r perl5/site_perl/5.22.0/Bio/ site_perl/5.26.2/x86_64-linux-thread-multi/
 ~~~
 {: .language-bash}

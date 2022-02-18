@@ -29,10 +29,10 @@ The results of VirFinder should already be in your R workspace in a dataframe ca
 > >
 > > ~~~
 > > # Load DeepVirFinder results
-> > > predDeepVir <- read.csv('~/JenaViromics2022/day2/results/contigs_over_200_deepvirfinder.csv')
+> > > predDeepVir <- read.csv('~/ViromicsCourse/day2/results/contigs_over_200_deepvirfinder.csv')
 > >  
 > > # Load PPR-Meta results
-> > > predPPRmeta <- read.table('~/JenaViromics2022/day2/results/contigs_over_200_pprmeta.txt', header=T)
+> > > predPPRmeta <- read.table('~/ViromicsCourse/day2/results/contigs_over_200_pprmeta.txt', header=T)
 > > ~~~
 > >{: .language-r}
 > {: .solution}

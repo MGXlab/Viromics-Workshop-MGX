@@ -34,9 +34,15 @@ Then, create a conda environment for pprmeta from the file *pprmeta.yaml* (If yo
 (pprmeta)$ unzip MCR_R2018a_glnxa64_installer.zip
 
 # install MCR into the tools folder
-(pprmeta)$ ./install -mode silent -agreeToLicense yes -destinationFolder ~/JenaViromics2022/day2/tools
+(pprmeta)$ ./install -mode silent -agreeToLicense yes -destinationFolder ~/ViromicsCourse/day2/tools
 ~~~
 {: .language-bash}
+
+The installation will take a little while. In the meantime, to better understand the differences between the tools, read the description of how they work in their publications.
+
+[PPR-Meta](https://academic.oup.com/gigascience/article/8/6/giz066/5521157) - Read at least the sections **Dataset construction** and **Mathematical model of DNA sequences**
+
+[DeepVirFinder](https://link.springer.com/article/10.1007/s40484-019-0187-4) - Read the sections **DeepVirFinder: viral sequences prediction using convolutional neural networks**, **Determining the optimal model for DeepVirFinder**, and the first two paragraphs of section **Predicting viral sequences using convolutional neural networks** (don't worry about the math to much).
 
 
 Next, download PPR-Meta and make the main script into an executable.
@@ -57,13 +63,13 @@ Finally, we have to edit the so-called LD_LIBRARY_PATH, a variable that contains
 ~~~
 # Add MCR folders to LD_LIBRARY_PATH
 # Note: If you have another version of MCR installed in your conda version, you might need to unset the library path first using: unset LD_LIBRARY_PATH
-(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/JenaViromics2022/day2/tools/v94/runtime/glnxa64
-(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/JenaViromics2022/day2/tools/v94/bin/glnxa64
-(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/JenaViromics2022/day2/tools/v94/sys/os/glnxa64
-(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/JenaViromics2022/day2/tools/v94/extern/bin/glnxa64
+(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/ViromicsCourse/day2/tools/v94/runtime/glnxa64
+(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/ViromicsCourse/day2/tools/v94/bin/glnxa64
+(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/ViromicsCourse/day2/tools/v94/sys/os/glnxa64
+(pprmeta)$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/ViromicsCourse/day2/tools/v94/extern/bin/glnxa64
 
 # You can test whether PPR-Meta is running correctly by running
-(pprmeta)$ cd ~/JenaViromics2022/day2/tools/v94/PPR-Meta
+(pprmeta)$ cd ~/ViromicsCourse/day2/tools/PPR-Meta
 (pprmeta)$ ./PPR-Meta example.fna results.csv
 ~~~
 {: .language-bash}
@@ -78,12 +84,6 @@ If the test run finishes successfully, then you can run PPR-Meta on the truncate
 {: .language-bash}
 
 PPR-Meta is very fast - your run should only take a couple of minutes. Compared to DeepVirFinder, which ran for almost an hour on the same dataset, this is very short. Can you think of why there is such a difference in runtime?
-
-To better understand the differences between the tools, read the description of how they work in their publications.
-
-[PPR-Meta](https://academic.oup.com/gigascience/article/8/6/giz066/5521157) - Read at least the sections **Dataset construction** and **Mathematical model of DNA sequences**
-
-[DeepVirFinder](https://link.springer.com/article/10.1007/s40484-019-0187-4) - Read the sections **DeepVirFinder: viral sequences prediction using convolutional neural networks**, **Determining the optimal model for DeepVirFinder**, and the first two paragraphs of section **Predicting viral sequences using convolutional neural networks** (don't worry about the math to much).
 
 
 {% include links.md %}
