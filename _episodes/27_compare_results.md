@@ -17,7 +17,7 @@ keypoints:
 
 Now that VirSorter has finished, take a look at the results (the main results file is called *VIRSorter_global-phage-signal.csv*. What kind of information can you find there?
 
-Because the output of VirSorter looks a lot different compared to the output of the other tools, we will first reformat it into a similar file. Download the script *reformat_virsorter_result.py* from [here](https://this_link_shall_be_replaced.com). This script will read in the VirSorter results, add the contigs that were not predicted as phages, and add an arbitrary score to each prediction. A phage annotation that was predicted as "sure" (categories 1 and 4) gets a score of 1.0, a "somewhat sure" (categories 2 and 5) prediction gets a score of 0.7, and a "not so sure" (categories 3 and 6) prediction gets a score of 0.51. All other sequences get a score of 0. 
+Because the output of VirSorter looks a lot different compared to the output of the other tools, we will first reformat it into a similar file. Download the script *reformat_virsorter_result.py* from [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/reformat_virsorter_result.py). This script will read in the VirSorter results, add the contigs that were not predicted as phages, and add an arbitrary score to each prediction. A phage annotation that was predicted as "sure" (categories 1 and 4) gets a score of 1.0, a "somewhat sure" (categories 2 and 5) prediction gets a score of 0.7, and a "not so sure" (categories 3 and 6) prediction gets a score of 0.51. All other sequences get a score of 0. 
 
 Do you think these score represent the predictions well? Why (not)?
 
@@ -96,13 +96,13 @@ We have seen that some tools annotate more contigs as viral than others. However
 > >
 > > # Plot the three heatmaps, save, and compare
 > > > ggplot(pred.l.melt, aes(variable, name, fill=value))+geom_tile()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_large_binary.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_large_binary.png', height=7, width=6)
 > >
 > > > ggplot(pred.m.melt, aes(variable, name, fill=value))+geom_tile()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_medium_binary.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_medium_binary.png', height=7, width=6)
 > >
 > > > ggplot(pred.s.melt, aes(variable, name, fill=value))+geom_tile()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_short_binary.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_short_binary.png', height=7, width=6)
 > >
 > > ~~~
 > >{: .language-r}
@@ -149,13 +149,13 @@ In the next step, do the same as before, but now instead of using a binary measu
 > > # The color palette in scale_viridis_c is optional. Scale_viridis_c is a continuous colour scale that works well for distinguishing colours
 > > # If you prefer a binned colour scale, you can also consider using scale_viridis_b 
 > > > ggplot(predScores.l.melt, aes(variable, name, fill=value))+geom_tile()+scale_viridis_c()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_large_continuous.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_large_continuous.png', height=7, width=6)
 > >
 > > > ggplot(predScores.m.melt, aes(variable, name, fill=value))+geom_tile()+scale_viridis_c()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_medium_continuous.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_medium_continuous.png', height=7, width=6)
 > >
 > > > ggplot(predScores.s.melt, aes(variable, name, fill=value))+geom_tile()+scale_viridis_c()
-> > > ggsave('~/JenaViromics2022/day2/results/contigs_short_continuous.png', height=7, width=6)
+> > > ggsave('~/ViromicsCourse/day2/results/contigs_short_continuous.png', height=7, width=6)
 > >
 > > ~~~
 > >{: .language-r}
