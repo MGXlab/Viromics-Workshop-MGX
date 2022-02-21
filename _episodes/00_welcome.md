@@ -1,12 +1,14 @@
 ---
 start: True
 title: "Welcome"
-teaching: 15
+teaching: 60
 exercises: 0
 questions:
-- "What are we going to learn in this workshop?"
+- "Who is sitting next to me?"
+- "What are we going to do in this workshop?"
 objectives:
 - "Overall view of the workshop"
+- "Getting to know each other"
 
 ---
 

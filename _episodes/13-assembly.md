@@ -1,30 +1,29 @@
 ---
 title: "Metavirome assembly"
-teaching: 15
-exercises: 20
+teaching: 20
+exercises: 40
 questions:
 - "What is a sequence assembly?"
 - "How is different a cross-assembly from a normal assembly?"
 objectives:
 - "Run a cross-assembly with all the samples."
 - "Assemble each sample separately and combine the results."
-- "Assess the differences between the two approaches."
 keypoints:
 - "With sequence assembly we get longer, more meaningful genomic fragments from short sequencing reads."
-- "In a cross-assembly, reads coming from the same species in different samples are merged into the same scaffold."
+- "In a cross-assembly, reads coming from the same species in different samples are merged into the same contig."
 ---
 
 ## Assembly and cross-assembly
 
-*Sequence assembly* is the reconstruction of long contiguous genomic sequences (called *contigs* or *scaffolds*) from short sequencing reads. Before 2014, a common approach in metagenomics was to compare the short sequencing reads to the genomes of known organisms in the database (and some studies today still take this approach). However, recall that most of the sequences of a metavirome are unknown, meaning that they yield no results when comparing them to the databases. Because of this, we need of database-independent approaches to describe new viral sequences. As bioinformatics tools improved, sequence assembly enabled recovery of longer sequences of the metagenomic datasets. Having a longer sequence means having more information to classify it, so using metagenome assembly helps to characterize complex communities such as the gut microbiome.
+*Sequence assembly* is the reconstruction of long contiguous genomic sequences (called *contigs* or *scaffolds*) from short sequencing reads. Before 2014, a common approach in metagenomics was to compare the short sequencing reads to the genomes of known organisms in the database (and some studies today still take this approach). However, recall that most of the sequences of a metavirome are unknown, meaning that they yield no matches when are compared to the databases. Because of this, we need of database-independent approaches to describe new viral sequences. As bioinformatic tools improved, sequence assembly enabled recovery of longer sequences of the metagenomic datasets. Having a longer sequence means having more information to classify it, so using metagenome assembly helps to characterize complex communities such as the gut microbiome.
 
-In a cross-assembly, **multiple samples are combined and assembled together**, allowing the discovery of shared sequence elements between the samples. If a virus (or other sequence element) is present in several samples, its sequencing reads from the different samples will be joined into one scaffold. After this we can know which scaffolds are present in which sample by mapping the sequencing reads from each sample to the cross-assembly. The first crAssphage, one of the most prevalent bacteriophages in the human gut, was discovered following this assembly approach in the same samples you are analyzing ([Dutilh et al 2014](https://www.nature.com/articles/ncomms5498/)).
-
-We will follow two different assembly strategies and assess the differences.
+In this lesson you will assemble the metaviromes in two different ways.
 
 ### Cross-Assembly
 
-You will perform a cross-assembly as in [Dutilh et al 2014](https://www.nature.com/articles/ncomms5498/). For this, merge the sequencing reads from all the samples into one single file called `all_samples.fasta`. We will use the assembler program SPAdes ([Bankevich et al J Comput Biol 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/)), which is based on de Bruijn graph assembly from kmers and allows for uneven depths, making it suitable for metagenome assembly and assembly of randomly amplified datasets. As stated above, this cross-assembly will combine the metagenomic sequencing reads from all twelve viromes into contigs/scaffolds. Because of the data we have, we will run SPAdes with parameters `--iontorrent` and `--only-assembler`, and parameters `-s` and `-o` for the input and output. Look at the help message with `spades.py -h` to know more details about the parameters. Look at the questions below while the command is running (around 10 minutes).
+In a cross-assembly, **multiple samples are combined and assembled together**, allowing for the discovery of shared sequence elements between the samples. If a virus (or other sequence element) is present in several samples, its sequencing reads from the different samples will be assembled together in one contig. After this we can know which contigs are present in which sample by mapping the sequencing reads from each sample to the cross-assembly.
+
+You will perform a cross-assembly as in [Dutilh et al., 2014](https://www.nature.com/articles/ncomms5498/). For this, merge the sequencing reads from all the samples into one single file called `all_samples.fasta`. We will use the assembler program SPAdes ([Bankevich et al., 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/)), which is based on de Bruijn graph assembly from kmers and allows for uneven depths, making it suitable for metagenome assembly. As stated above, this cross-assembly will combine the metagenomic sequencing reads from all twelve viromes into contigs. Because of the data we have, we will run SPAdes with parameters `--iontorrent` and `--only-assembler`, and parameters `-s` and `-o` for the input and output. Look at the help message with `spades.py -h` to know more details about the parameters. Look at the questions below while the command is running (around 10 minutes).
 
 ~~~
 # merge the sequences
@@ -38,15 +37,15 @@ $ spades.py -o 1_assemblies/cross_assembly ...
 ~~~
 {: .language-bash}
 
-Ion Torrent is a sequencing platform, as well as 454, the platform used to sequence the data you are using. Note well we used `--iontorrent` parameter when running SPAdes. This is because there is not a parameter `--454` to accommodate for the peculiarities of this platform, and the most similar is Ion Torrent. Specifically, both platforms are prone to errors in **homopolymeric regions**. Watch [this video](https://www.youtube.com/watch?v=sdxVDy0lSAE) (if you did not in previous chapter) from minute 06:50, and explain **what is an homopolymeric region, and how exactly the Ion Torrent and 454 platforms fail on them**.
+Ion Torrent is a sequencing platform, as well as 454, the platform used to sequence the data you are using. Note well we used `--iontorrent` parameter when running SPAdes. This is because there is not a parameter `--454` to accommodate for the peculiarities of this platform, and the most similar is Ion Torrent. Specifically, both platforms are prone to errors in **homopolymeric regions**. Have a look at [this video](https://www.youtube.com/watch?v=sdxVDy0lSAE) from minute 06:50, and explain **what is an homopolymeric region, and how exactly the Ion Torrent and 454 platforms fail on them**.
 
 Regarding the `--only-assembler` parameter, we use it to avoid the read error correction step, where the assembler tries to correct single base errors in the reads by looking at the k-mer frequency and quality scores. **Why are we skipping this step?**
 
 ### Separate assemblies
 
-The second approach will consist on performing separate assemblies for each sample and merging the results in a final set of scaffolds. Note well if a species is present in several samples, this final set will contain multiple scaffolds representing the same sequence, each of them coming from one sample. Because of this, we will further de-replicate the final scaffolds to get representative sequences.
+The second approach consists on performing separate assemblies for each sample and merging the resulting contigs at the end. Note well if a species is present in several samples, this final set will contain multiple contigs representing the same sequence, each of them coming from one sample. Because of this, we will further de-replicate the final contigs to get representative sequences.
 
-If you wouldn't know how to run the 12 assemblies sequentially with one command, check block below. Else, create a folder `1_assemblies/separate_assemblies` and put the assembly of each sample there (ie. `1_assemblies/separate_assemblies/F1M`). Use the same parameters as in the cross-assembly.
+If you wouldn't know how to run the 12 assemblies sequentially with one command, check block below. Else, create a folder `1_assemblies/separate_assemblies` and put each sample's assembly there (ie. `1_assemblies/separate_assemblies/F1M`). Use the same parameters as in the cross-assembly.
 
 > ## Process multiple samples sequentially
 > Sometimes you need to do the same analysis for different samples. For those cases,
@@ -73,7 +72,14 @@ If you wouldn't know how to run the 12 assemblies sequentially with one command,
 > {: .language-bash}
 {: .objectives}
 
-Once the assemblies had finished, run the python script `rename_scaffolds.py` and merge all the renamed scaffolds from `1_assemblies/separate_assemblies/<SAMPLE>/scaffolds_renamed.fasta` into one single file `1_assemblies/separate_assemblies/all_samples_scaffolds.fasta`. We change the name of the scaffolds in each assembly to avoid duplicated names in the final set of scaffolds.
+Once the assemblies had finished, you will combine their scaffolds in a single file.
+The identifier of a contig/scaffold from SPAdes has the following format (from the [SPAdes manual](https://cab.spbu.ru/files/release3.15.2/manual.html)): _>NODE_3_length_237403_cov_243.207_, where _3_ is the number of the contig/scaffold, _237403_ is the sequence length in nucleotides and _243.207_ is the k-mer coverage.
+It might happen that 2 contigs from different samples' assemblies have the same identifier, and
+recall from earlier this morning that
+So, just in case, we will add the sample identifier at the beginning of the scaffolds identifiers
+to make sure they are different between samples. Use the Python script `rename_scaffolds.py`
+for this, which will create a `scaffolds_renamed.fasta` file for each sample's assembly. Then,
+merge the results into `1_assemblies/separate_assemblies/all_samples_scaffolds.fasta`.
 
 ~~~
 # include sample name in scaffolds names
@@ -84,7 +90,12 @@ $ cat 1_assemblies/separate_assemblies/*/scaffolds_renamed.fasta > 1_assemblies/
 ~~~
 {: .language-bash}
 
-To de-replicate the scaffolds, you will cluster them at 95% Average Nucleotide Identify (ANI) over 85% of the length of the shorter sequence. Look at the [CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/) website, _Rapid genome clustering based on pairwise ANI_ section, to do so.
+To de-replicate the scaffolds, you will cluster them at 95% Average Nucleotide Identify (ANI) over 85% of the length of the shorter sequence, cutoffs often used to cluster viral genomes at the species level. For further analysis, we will use the longest sequence of the cluster as a representative of it. Then, with this approach we are:
+
+- Clustering complete viral genomes at the species level
+- Clustering genome fragments along with very similar and longer sequences
+
+Look at the [CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/) website and follow the steps under _Rapid genome clustering based on pairwise ANI_ section to perform this clustering.
 
 ~~~
 # create a blast database with all the scaffolds
@@ -113,54 +124,16 @@ $ seqtk subseq ... > 1_assemblies/separate_assemblies/my_clusters_representative
 ~~~
 {: .language-bash}
 
-
-### Assemblies assessment
-
-Now we will measure some basic aspects of the assemblies, such as the fragmentation degree and the percentage of the raw data they contain. Ideally, the assembly would contain a single and complete contig for each species in the sample, and would represent 100% of the sequencing reads.
-
-#### Fragmentation
-
-Use the QUAST program ([Gurevich et al., 2013](https://pubmed.ncbi.nlm.nih.gov/23422339/)) to assess how fragmented are the assemblies. Have a look at the possible parameters with `quast -h`. You will need to run it two times, one per assembly, and save the results to different folders (ie. `quast_crossassembly` and `quast_separate`)
-
-~~~
-# create a folder for the assessment
-$ mkdir 1_assemblies/assessment
-
-# run quast two times, one per assembly
-$ quast -o 1_assemblies/assessment/<OUTPUT_FOLDER> ...
-~~~
-{: .language-bash}
-
-#### Raw data representation
-
-You can know the amount of raw data represented by the assemblies by mapping the reads back to them and quantifying the percentage or reads that could be aligned. For this, use the BWA ([cite]()) and Samtools ([cite]()) programs. BWA is a short-read aligner, while Samtools is a suite of programs intended to work with mapping results. Mapping step requires you to first index the assemblies with `bwa index` so BWA can quickly access them. After it, use `bwa mem` to align the sequences to the assemblies and save the results in a SAM format file (ie. `crossassembly.sam` and `separate.sam`). Then use `samtools view` to convert the SAM files to BAM format (ie. `crossassembly.bam` and `separate.bam`), which is the binary form of the SAM format. Once you have the BAM files, sort them with `samtools sort` (output could be `crossassembly_sorted.bam` and `separate_sorted.bam`). Last, index the sorted BAM files to allow for an efficient processing, and get basic stats of the mapping using `samtools flagstats`.
-
-~~~
-# index the assemblies
-$ bwa index <ASSEMBLY_FASTA>
-
-# map the reads to each assembly
-$ bwa mem ... > 1_assemblies/assessment/<OUTPUT_SAM>
-
-# convert SAM file to BAM file
-$ samtools view ...
-
-# sort the BAM file
-$ samtools sort ...
-
-# index the sorted BAM file
-$ samtools index ...
-
-# get mapping statistics
-$ samtools flagstats ...
-~~~
-{: .language-bash}
-
-> ## Compare both assemblies
-> So far you have calculated some metrics to assess the quality of the assemblies, but bare in mind there also exist also others we can check for this, such as the number of ORFs or the depth of coverage across the contigs.
-> In the report generated by Quast, look at metrics regarding scaffolds length, such as the N50. Can you explain the difference between both assemblies? Regarding the raw data containment, how different are both assemblies?
-{: .discussion}
-
+> ## Scaffolding in SPAdes
+> Previously this morning you saw how, using paired-end reads information, contigs
+> can be merged in scaffolds. However, we have been using the scaffolds during this  
+> lesson.
+> Identify a scaffold with clear evidence of merged contigs, and explain how is that
+> possible if we are using single-end reads.
+> > ## Solution
+> > Not the solution, but a hint ;) check the [SPAdes manual](http://cab.spbu.ru/files/release3.15.3/manual.html)
+> {: .solution}
+{: .challenge}
 
 
 {% include links.md %}

@@ -1,14 +1,13 @@
 ---
 title: "Lunch break"
-teaching: 50
+teaching: 55
 exercises: 0
 questions:
-- ""
 
 objectives:
-- ""
 
 keypoints:
 
+---
 
 {% include links.md %}
