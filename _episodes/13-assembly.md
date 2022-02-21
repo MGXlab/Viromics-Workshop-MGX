@@ -101,11 +101,17 @@ To de-replicate the scaffolds, you will cluster them at 95% Average Nucleotide I
 Look at the [CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/) website and follow the steps under _Rapid genome clustering based on pairwise ANI_ section to perform this clustering.
 
 ~~~
+
+
 # create a blast database with all the scaffolds
 $ makeblastdb ...
 
 # compare the scaffolds all vs all using blastn
 $ blastn ...
+
+# download anicalc.py and aniclust.py scripts
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/anicalc.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/aniclust.py
 
 # calculate pairwise ANI
 $ python anicalc.py ...

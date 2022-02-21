@@ -23,7 +23,7 @@ the environment in your machine, and activate it.
 
 ~~~
 # download the file describing the conda environment
-$ wget
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/day1_env_file.txt
 
 # create the environment, call it day1_env
 $ conda create --name day1_env --file day1_env_file.txt

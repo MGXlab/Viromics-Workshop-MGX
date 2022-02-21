@@ -3,11 +3,13 @@ title: "Visualizing the assembly graph"
 teaching: 20
 exercises: 30
 questions:
-- ""
+- "How the k-mer size contributes to the conectivity of the graph?"
+- "Are related species connected in the graph?"
 objectives:
-- ""
+- "Understanding how k-mer size affects the topology of the graph"
+- "Understanding how the presence of similar species in the sample affects the graph"
 keypoints:
-- ""
+
 ---
 
 ## Effect of k-mer size
@@ -41,6 +43,7 @@ environment for today, and call Bandage from the terminal like this:
 # run Bandage
 $ ./Bandage_Ubuntu-x86-64_v0.9.0.AppImage
 ~~~
+{: .language-bash}
 
 In _File > Load_graph_, navigate to any of the per sample assemblies and load
 `assembly_graph.fastg` for the k-mer size 21. Then click _Draw graph_ to see the
@@ -56,7 +59,7 @@ using information from previous k-mers too. Can you think of any disadvantage of
 using only a large k-mer size to construct the graph? Would you expect high or low
 connnectivity?
 
-{: .language-bash}
+
 
 
 ## Effect of related species
@@ -81,7 +84,16 @@ where this contig comes from was present in all the samples. Or maybe related ge
 that share that genomic sequence.
 
 Let's identify the p-crAssphage in the cross-assembly graph using Bandage and Blast.
-For this, run Bandage and load the cross-assembly graph under `1_assemblies/cross_assembly/assembly_graph.fastg`.
+Download the p-crassphage genome as follows:
+
+~~~
+# download p-crassphage genome
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/crAssphage.fasta
+~~~
+{: .language-bash}
+
+
+Then, run Bandage and load the cross-assembly graph under `1_assemblies/cross_assembly/assembly_graph.fastg`.
 Then, click _Create/view BLAST search_ and use `crAssphage.fasta` as query. Colored
 nodes are the ones showing similarity to the p-crAssphage. In a new Bandage window,
 repeat the Blast analysis with the sample F2T1, which was used in the original paper

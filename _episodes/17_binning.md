@@ -1,9 +1,9 @@
 ---
 title: "Binning contigs"
 teaching: 15
-exercises: 20
+exercises: 60
 questions:
-- ""
+- "How many bins do we obtain?"
 objectives:
 - ""
 keypoints:
