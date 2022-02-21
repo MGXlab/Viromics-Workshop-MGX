@@ -39,7 +39,7 @@ environment for today, and call Bandage from the terminal like this:
 
 ~~~
 # run Bandage
-$ scripts/Bandage_Ubuntu-x86-64_v0.9.0.AppImage
+$ ./Bandage_Ubuntu-x86-64_v0.9.0.AppImage
 ~~~
 
 In _File > Load_graph_, navigate to any of the per sample assemblies and load
@@ -89,10 +89,6 @@ to reconstruct the p-crassphage. **Can you explain what you see?** To corroborat
 your answer, inspect the `assembly_graph.fastg` file of F2T1 to know which scaffold
 is the p-crassphage. After this, note if it clustered with any other scaffolds from
 different samples.
-
-Now we will look for relatives of the p-crassphage. F4M, SRR073439_s_2.
-
-
 
 
 

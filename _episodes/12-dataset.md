@@ -18,6 +18,22 @@ keypoints:
 - "Next Generation Sequencing data is made of short sequences."
 ---
 
+Before anything else, download the file containing the conda environment file, create
+the environment in your machine, and activate it.
+
+~~~
+# download the file describing the conda environment
+$ wget
+
+# create the environment, call it day1_env
+$ conda create --name day1_env --file day1_env_file.txt
+
+# activate the environment
+$ conda activate day1_env
+~~~
+{: .language-bash}
+
+
 ## Metagenomics
 
 The emergence of Next Generation Sequencing (NGS) has facilitated the development of metagenomics. In metagenomic studies, DNA from all the organisms in a mixed sample is sequenced in a massively parallel way (or RNA in case of metatranscriptomics). The goal of these studies is usually to identify certain microbes in a sample, or to taxonomically or functionally characterize a microbial community. There are different ways to process and analyze metagenomes, such as the targeted amplification and sequencing of the 16S ribosomal RNA gene (amplicon sequencing, used for taxonomic profiling) or shotgun sequencing of the complete genomes in the sample.

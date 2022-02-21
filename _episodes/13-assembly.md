@@ -82,6 +82,9 @@ for this, which will create a `scaffolds_renamed.fasta` file for each sample's a
 merge the results into `1_assemblies/separate_assemblies/all_samples_scaffolds.fasta`.
 
 ~~~
+# download the python script
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/rename_scaffolds.py
+
 # include sample name in scaffolds names
 $ python rename_scaffolds.py -d 1_assemblies/separate_assemblies
 

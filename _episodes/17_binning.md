@@ -59,6 +59,9 @@ with the bin identifier, which is a number. Use the script `create_fasta_bins.py
 to create separate FASTA files for each bin, and save the results in `3_binning/fasta_bins`.
 
 ~~~
+# download the python script
+$
+
 # Have a look at options
 $ python create_fasta_bins.py -h
 
@@ -66,29 +69,6 @@ $ python create_fasta_bins.py -h
 $ python create_fasta_bins.py -o 3_binning/fasta_bins ...
 ~~~
 {: .language-bash}
-
-
-Now you will use CheckV to asses the quality and completeness of the contigs that
-were binned. Ideally, the completeness percentages of the contigs binned together
-should add up to something close to 100%, meaning that the bin represents most of
-the viral genome. Note well CheckV is not designed for bins but for contigs, so you
-will run it separately for each contig.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
