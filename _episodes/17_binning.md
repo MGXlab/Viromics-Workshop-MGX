@@ -9,6 +9,10 @@ objectives:
 keypoints:
 - ""
 ---
+
+
+
+
 One of the drawbacks of the assembly step is that the actual genomes in the sample
 are usually split across several contigs. This can be a problem for analyses that
 benefit from having as much complete as possible genomes, such as __metabolic pathways
@@ -36,13 +40,16 @@ $ for sample in F*.fasta; do ... ... ... ; done
 ~~~
 {: .language-bash}
 
-Once you have your BAM files, run CoCoNet with default parameters, and save the
+Once you have your BAM files, install and run CoCoNet with default parameters, and save the
 results in the `3_binning` folder. It should take 5-10 minutes. Look at questions
 below in the meantime.
 
 ~~~
-# Run coconet
-$ coconet run --output 3_binning ...
+# install coconet
+$ pip install --user coconet-binning
+
+# Run coconet. Don't forget to include your username in the command.
+$ /home/<USERNAME>/.local/bin/coconet run --output 3_binning ...
 ~~~
 {: .language-bash}
 
@@ -60,19 +67,17 @@ to create separate FASTA files for each bin, and save the results in `3_binning/
 
 ~~~
 # download the python script
-$
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/create_fasta_bins.py
 
 # Have a look at options
 $ python create_fasta_bins.py -h
 
-# run the script to create the FASTA bins
+# run the script to create the FASTA bins with the correct options
 $ python create_fasta_bins.py -o 3_binning/fasta_bins ...
 ~~~
 {: .language-bash}
 
 
-
-
-
+You will be using these bins for days 3 and 4, so don't forget where they are!
 
 {% include links.md %}
