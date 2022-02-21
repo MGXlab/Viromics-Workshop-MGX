@@ -45,6 +45,9 @@ results in the `3_binning` folder. It should take 5-10 minutes. Look at question
 below in the meantime.
 
 ~~~
+# deactivate the conda environment before running coconet
+$ conda deactivate
+
 # install coconet
 $ pip install --user coconet-binning
 
@@ -66,6 +69,9 @@ with the bin identifier, which is a number. Use the script `create_fasta_bins.py
 to create separate FASTA files for each bin, and save the results in `3_binning/fasta_bins`.
 
 ~~~
+# activate the environment again
+$ conda activate day1_env
+
 # download the python script
 $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/create_fasta_bins.py
 
