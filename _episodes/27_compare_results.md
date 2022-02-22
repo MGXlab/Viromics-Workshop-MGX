@@ -85,7 +85,7 @@ We have seen that some tools annotate more contigs as viral than others. However
 > > # Select three ranges of 50 contigs each
 > > > pred.long<-pred[1:50,]
 > > > pred.medium<-pred[2500:2550,]
-> > > pred.short<-pred[9828:9878,]
+> > > pred.short<-pred[8725:8775,]
 > >  
 > > # Attach the packages necessary for plotting and prepare the data
 > > > library(ggplot2)
@@ -138,7 +138,7 @@ In the next step, do the same as before, but now instead of using a binary measu
 > > # Select three ranges of 50 contigs each
 > > > predScores.long<-predScores[1:50,]
 > > > predScores.medium<-predScores[2500:2550,]
-> > > predScores.short<-predScores[9828:9878,]
+> > > predScores.short<-predScores[8725:8775,]
 > >  
 > > # Prepare the data for plotting
 > > > predScores.l.melt<-melt(predScores.long, id="name")
@@ -205,21 +205,21 @@ Sensitivity= TP/(TP+FN)
 > > ## Solution
 > > ~~~
 > > # PPR-Meta
-> > > 5838/9878
+> > > 5838/8775
 > > [1] 0.5910103
 > >
 > > # VirFinder
-> > > 5578/9878
+> > > 5578/8775
 > > [1] 0.5646892
 > >
 > > # DeepVirFinder
-> > > 6203/9878
+> > > 6203/8775
 > > [1] 0.6279611
 > >
 > > # VirSorter: number of sequences annotated as viral 
 > > > sum(predVirSorter$pred==1)
 > > [1] 66
-> > > 66/9878
+> > > 66/8775
 > > [1] 0.006681514
 > > ~~~
 > >{: .language-r}

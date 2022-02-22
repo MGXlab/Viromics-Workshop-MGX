@@ -50,16 +50,16 @@ $ cp /path/to/yesterdays/scaffolds.fasta ~/ViromicsCourse/day2/
 ~~~
 {: .language-bash}
 
-The file *dvf.py* inside the folder tools/DeepVirFinder/ contains the code to run DeepVirFinder. Once the conda environment has been successfully created, run DeepVirFinder on the contigs you have assembled yesterday. We want to focus on the most reliable contigs and will therefore only input contigs that are over 200 nucleotides in length (DeepVirFinder actually has an option that makes it pass sequences below a certain length, but some of the other tools do not have that option).
+The file *dvf.py* inside the folder tools/DeepVirFinder/ contains the code to run DeepVirFinder. Once the conda environment has been successfully created, run DeepVirFinder on the contigs you have assembled yesterday (use the scaffolds from the cross-assembly, not the pooled separate assemblies). We want to focus on the most reliable contigs and will therefore only input contigs that are over 300 nucleotides in length (DeepVirFinder actually has an option that makes it pass sequences below a certain length, but some of the other tools do not have that option).
 
 ~~~
-# Find out until which line you have to truncate the file to only include contigs longer than 200nt
+# Find out until which line you have to truncate the file to only include contigs longer than 300nt
 $ less -N scaffolds.fasta
 # While reading the file with less, you can look for a pattern by typing
-/_LENGTH_200_
+/_length_200_
 
 # Make truncated contig file (replace xxx with the last line number you want to include - the sequence of the last contig longer than 200nt)
-$ head -n xxx ~/ViromicsCourse/day2/scaffolds.fasta > ~/ViromicsCourse/day2/scaffolds_over_200.fasta
+$ head -n xxx ~/ViromicsCourse/day2/scaffolds.fasta > ~/ViromicsCourse/day2/scaffolds_over_300.fasta
 
 # Activate the deepvir conda environment
 $ conda activate dvf

@@ -33,10 +33,10 @@ The next few commands will be in R.
 > library("VirFinder")
 
 # Run VirFinder on our dataset
-> predVirFinder <- VF.pred('~/ViromicsCourse/day2/scaffolds_over_200.fasta')
+> predVirFinder <- VF.pred('~/ViromicsCourse/day2/scaffolds_over_300.fasta')
 
 # Save the resulting data frame as a comma-separated textfile
-> write.csv(predResult, "~/ViromicsCourse/day2/results/scaffolds_over_200_virfinder.csv", row.names=F)
+> write.csv(predResult, "~/ViromicsCourse/day2/results/scaffolds_over_300_virfinder.csv", row.names=F)
 ~~~
 {: .language-r}
 

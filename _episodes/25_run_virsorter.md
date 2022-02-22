@@ -60,7 +60,7 @@ Finally, run VirSorter. Note that VirSorter is very particular about its working
 ~~~
 # Run VirSorter
 # Under the argument --data-dir put the link https://blahblah.com/virsorter-data
-$ wrapper_phage_contigs_sorter_iPlant.pl -f ~/ViromicsCourse/day2/scaffolds_over_200.fasta --db 1 --wdir ~/ViromicsCourse/day2/results/virsorter --ncpu 1 --data-dir ~/ViromicsCourse/day2/tools/virsorter-data
+$ wrapper_phage_contigs_sorter_iPlant.pl -f ~/ViromicsCourse/day2/scaffolds_over_300.fasta --db 1 --wdir ~/ViromicsCourse/day2/results/virsorter --ncpu 1 --data-dir ~/ViromicsCourse/day2/tools/virsorter-data
 ~~~
 {: .language-bash}
 

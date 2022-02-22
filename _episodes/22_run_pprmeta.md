@@ -79,11 +79,11 @@ If the test run finishes successfully, then you can run PPR-Meta on the truncate
 
 ~~~
 # Run PPR-Meta on contigs
-(pprmeta)$ ./PPR-Meta ../../scaffolds_over_200.fasta ../../results/scaffolds_over_200_pprmeta.csv
+(pprmeta)$ ./PPR-Meta ../../scaffolds_over_300.fasta ../../results/scaffolds_over_300_pprmeta.csv
 ~~~
 {: .language-bash}
 
-PPR-Meta is very fast - your run should only take a couple of minutes. When it's finished, move on to the next section.
+PPR-Meta is very fast - your run should only take a couple of minutes. When it's finished, move on to the next section. If you don't have the database for virsorter on your computer yet, you can start the download in the background now. You can download the data [here](https://zenodo.org/record/1168727/files/virsorter-data-v2.tar.gz) and unzip it after the download.
 
 
 {% include links.md %}
