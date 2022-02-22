@@ -17,6 +17,8 @@ keypoints:
 
 Now that VirSorter has finished, take a look at the results (the main results file is called *VIRSorter_global-phage-signal.csv*. What kind of information can you find there?
 
+If you couldn't run VirSorter because of time or because you couldn't download the database, you can downoad the virsorter results from [here](https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_2/virsorter_results.tar.gz) and unzip it using tar -xzvf.
+
 Because the output of VirSorter looks a lot different compared to the output of the other tools, we will first reformat it into a similar file. Download the script *reformat_virsorter_result.py* from [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_2/reformat_virsorter_result.py). This script will read in the VirSorter results, add the contigs that were not predicted as phages, and add an arbitrary score to each prediction. A phage annotation that was predicted as "sure" (categories 1 and 4) gets a score of 1.0, a "somewhat sure" (categories 2 and 5) prediction gets a score of 0.7, and a "not so sure" (categories 3 and 6) prediction gets a score of 0.51. All other sequences get a score of 0. 
 
 Do you think these score represent the predictions well? Why (not)?
@@ -205,22 +207,22 @@ Sensitivity= TP/(TP+FN)
 > > ## Solution
 > > ~~~
 > > # PPR-Meta
-> > > 5838/8775
-> > [1] 0.5910103
+> > > number_of_detected_contigs/number_of_contigs
+> > 
 > >
 > > # VirFinder
-> > > 5578/8775
-> > [1] 0.5646892
+> > > number_of_detected_contigs/number_of_contigs
+> > 
 > >
 > > # DeepVirFinder
-> > > 6203/8775
-> > [1] 0.6279611
+> > > number_of_detected_contigs/number_of_contigs
+> > 
 > >
 > > # VirSorter: number of sequences annotated as viral 
 > > > sum(predVirSorter$pred==1)
-> > [1] 66
-> > > 66/8775
-> > [1] 0.006681514
+> > 
+> > > sum(predVirSorter$pred==1)/number_of_contigs
+> >
 > > ~~~
 > >{: .language-r}
 > {: .solution}

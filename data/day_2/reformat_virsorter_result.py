@@ -52,10 +52,10 @@ def reformat_virsorter(infile, outfile, pred):
             else:
                 outf.write('{},{},{}\n'.format(pred[n][0],pred[n][1],0))
 
-# if __name__=='__main__':
-#     inf=sys.argv[1]
-#     outf=sys.argv[2]
-#     print("Grabbing contig sequences")
-#     pred=grab_contig_ids(inf)
-#     print("Reformatting Virsorter output")
-#     reformat_virsorter(inf, outf, pred)
+if __name__=='__main__':
+    inf=sys.argv[1]
+    outf=sys.argv[2]
+    print("Grabbing contig sequences")
+    pred=grab_contig_ids(inf)
+    print("Reformatting Virsorter output")
+    reformat_virsorter(inf, outf, pred)
