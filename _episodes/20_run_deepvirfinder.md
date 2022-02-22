@@ -56,7 +56,7 @@ The file *dvf.py* inside the folder tools/DeepVirFinder/ contains the code to ru
 # Find out until which line you have to truncate the file to only include contigs longer than 300nt
 $ less -N scaffolds.fasta
 # While reading the file with less, you can look for a pattern by typing
-/_length_200_
+/_length_300_
 
 # Make truncated contig file (replace xxx with the last line number you want to include - the sequence of the last contig longer than 200nt)
 $ head -n xxx ~/ViromicsCourse/day2/scaffolds.fasta > ~/ViromicsCourse/day2/scaffolds_over_300.fasta
@@ -65,7 +65,7 @@ $ head -n xxx ~/ViromicsCourse/day2/scaffolds.fasta > ~/ViromicsCourse/day2/scaf
 $ conda activate dvf
 
 # Run DeepVirFinder
-(dvf)$ python3 dvf.py -i ~/ViromicsCourse/day2/scaffolds.fasta -o ~/ViromicsCourse/day2/results/
+(dvf)$ python3 dvf.py -i ~/ViromicsCourse/day2/scaffolds_over_300.fasta -o ~/ViromicsCourse/day2/results/
 ~~~
 {: .language-bash}
 
