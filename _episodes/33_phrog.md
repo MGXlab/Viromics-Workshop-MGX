@@ -86,7 +86,7 @@ bin_13||F1T1_NODE_28
 > Take a closer look at the contigs `bin_01||F1M_NODE_1` vs `bin_62||F3M_NODE_2` - both crassphages.
 > - __What do you notice in this comparison?__
 >
-> - __Go to Figure 7 of this paper, is this what you thought? How are we going to tackle this?__
+> - __Go to Figure 7 of [this paper](https://www.nature.com/articles/s41467-021-21350-w), is this what you thought? How are we going to tackle this?__
 {: .challenge}
 
 
