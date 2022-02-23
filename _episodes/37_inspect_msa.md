@@ -30,8 +30,7 @@ alignments.
 
 > ## Entropy values
 > - __In Jalview, can you explain the high and low entropy values?__
-> - __Do you think high, middle or low entropy would be the best to do a model search?__ 
-
+> - __Do you think high, middle or low entropy would be the best to do a model search?__
 {: .challenge}
 
 
