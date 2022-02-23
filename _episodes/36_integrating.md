@@ -77,7 +77,7 @@ not.annotated <- setdiff(all.proteins, annotated.proteins)
 ~~~
 {: .languare-r}
 
-We will now only look at the "annot" columns, so `annotsingle` and `annotcluster`. Use `View` to look at several of the dataframes we created with the above code, such as the `both.unknowns` and `not.annotated`.
+We will now only look at the "annot" columns, so `annotsingle` and `annotcluster`. Use `View` to view several of the dataframes we created with the above code, such as the `both.unknowns` and `not.annotated`.
 
 > ## Compare annotations
 > - __Was our profile search approach able to annotate proteins that, using the single search, remained unannotated? If so how many?__
