@@ -41,7 +41,7 @@ cd ..
 Like you did before we have to activate a conda environment
 
 ~~~
-wget https://raw.githubusercontent.com/rickbeeloo/day3-data/main/day3.yaml
+wget https://raw.githubusercontent.com/rickbeeloo/day3-data/main/day3_func.yaml
 conda env create -f day3.yaml -n day3
 conda activate day3
 ~~~
