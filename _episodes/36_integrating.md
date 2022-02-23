@@ -12,7 +12,7 @@ keypoints:
 
 Now it is time to compare the model search with that of the invidual proteins. We will load the HHblits results from the "single" and "cluster" search in R and then join the tables to see the differences. 
 
-Our anotation files (for both "single" and "cluster/msa") only contain information for a protein when there actually was a match found. However, we are also interested in all the proteins that didn't get annotated either way. Hence we will first grep those from the proteins.faa file. Being in the day3 folder the command can look like this:
+Our anotation files (for both "single" and "cluster/msa") only contain information for a protein when there actually was a match found. However, we are also interested in all the proteins that didn't get annotated either way. Hence we will first grep those from the proteins.faa file. Being in the `day3` folder the command can look like this:
 
 ~~~
 grep "^>" prodigal_default/proteins.faa | cut -f 2 -d ">" | cut -f 1 -d " " > all_prodigal_genes.txt
