@@ -25,7 +25,7 @@ cd ..
 
 ### Gene start
 
-Load the genes_default.txt and genes_meta.txt in R (type rstudio) or Excel and see if you can spot differences between the two methods. I also wrote a script that will visualize the gene predictions on the contig. In Rstudio go to file > New file > Rscript and then you can copy the code from (here)[https://github.com/rickbeeloo/day3-data/blob/main/plot_prodigal_comparison.R] and paste it - take a look at the script. It will read the gene coordinates from the two files (you have to adjust the paths), assign them to seperate groups (or the same group when in agreement) and then visualize these on the genome with gggenes.
+Load the genes_default.txt and genes_meta.txt in R (type rstudio) or Excel and see if you can spot differences between the two methods. I also wrote a script that will visualize the gene predictions on the contig. In Rstudio go to file > New file > Rscript and then you can copy the code from [here](https://github.com/rickbeeloo/day3-data/blob/main/plot_prodigal_comparison.R) and paste it - take a look at the script. It will read the gene coordinates from the two files (you have to adjust the paths), assign them to seperate groups (or the same group when in agreement) and then visualize these on the genome with gggenes.
 
 > ## Comparison
 > - __Look at the gene comparison plot, what conclusions can we draw?*__
