@@ -28,7 +28,7 @@ Among one of the factors that might influence the quality of our MSAs is our clu
 You can get the MSA for the highest entropy MSA [here](https://github.com/rickbeeloo/day3-data/blob/main/101471_heighest.fasta) and the [lowest](https://github.com/rickbeeloo/day3-data/blob/main/131523_lowest.fasta) entropy MSA here. Install Jalview from [here](https://www.jalview.org/) and visualize the
 alignments.
 
-> ## MSA quality
+> ## Entropy values
 > - __In Jalview, can you explain the high and low entropy values?__
 {: .challenge}
 
