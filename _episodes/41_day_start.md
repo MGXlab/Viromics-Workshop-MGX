@@ -1,5 +1,4 @@
 ---
-start: True
 title: "Clustering and taxonomic classification of uncultivated viral genomes"
 teaching: 0
 exercises: 15

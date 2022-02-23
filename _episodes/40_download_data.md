@@ -1,4 +1,5 @@
 ---
+start: True
 title: "Required data"
 teaching: 0
 exercises: 10
