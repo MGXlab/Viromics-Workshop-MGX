@@ -30,18 +30,19 @@ head -100 bin_03.fasta
 head -4000 bin_03.fasta | tail -250
 
 # Note:
-# bins typically contains multiple contigs, so make sure that the part you copy
-# doesn't extend into another contig. In that case it will contain a header line
-# (starts with ">") in the middle of your sequence, and Blast won't like that.
+# bins typically contains multiple contigs. If you want to blast multiple contigs,
+# just make sure that they contain the header lines (starts with ">") in between.
+# You can select the results for each of the sequences on the blast results page.
 
 # Note:
-# If the sequence you blast is very long, blast might take too long to finish or
-# not finish at all.
+# Don't do this for many or very long sequences since we don't want to overload the blast server.
+# If you want to search a lot of sequences in this way (NOT recommended!) you would
+# use a command line blast version on your own server.
 ```
 ![Image]({{ page.root }}/fig/day4/blast.png)
 
 
-For "Database" (B) select `Nucleotide collection (nr/nt)` or `RefSeq Genome database`. For 'Programs selection' (C) choose `Megablast`.  
+For "Database" (B) select `Nucleotide collection (nr/nt)` or `RefSeq Genome database`. For 'Programs selection' (C) choose `Megablast`. This is the least sensitive, but also the fastest of the different blast flavors.
 Click the blue "Blast" button and wait for the results.
 
 
