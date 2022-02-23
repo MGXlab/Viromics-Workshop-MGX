@@ -20,7 +20,7 @@ grep "^>" prodigal_default/proteins.faa | cut -f 2 -d ">" | cut -f 1 -d " " > al
 {: .languare-bash}
 
 
-You will have to change the file paths for `hhsearch_results.txt` and `msa_hhsearch_results.txt`.
+And then you can use R code like this to look at the differences and similarities, again change the file paths.
 
 ~~~
 library(dplyr)
