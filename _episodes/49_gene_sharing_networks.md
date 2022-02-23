@@ -17,7 +17,7 @@ keypoints:
 ---
 ### 0. Preparations
 
-If you didn't successfully finished running vcontact2 please download the vContact2 data from here:
+If you didn't successfully finish running vcontact2 please download the vContact2 data from here:
 `FILL IN`
 
 > ## Task: Check vContact2 output files
@@ -47,13 +47,14 @@ Which sequences are included in the output?
 > Open Cytoscape with the desktop shortcut. Cytoscape has a graphical interface that might be a bit overwhelming at first.
 > - Follow steps 7-10 from this [manual](https://www.protocols.io/view/applying-vcontact-to-viral-sequences-and-visualizi-x5xfq7n) to load the network and annotation file into Cytoscape.
 >
->- Change network layout:  
+> - Change the network layout:  
 > 'Layout > Edge-weighted Spring Embedded layout', and select the column with the numeric data (probably column 3).
 > This places genomes that share more protein clusters closer together.
 {: .challenge}
 
-> ## Step 3. Explore the data and explain what you see.
-> Take a moment to orient yourself: what are you looking at?
+
+> ## Step 3: Explore the data and explain what you see.
+> Take a moment to look at what you see. Why are the networks and nodes organised like this?
 > Inspect a few nodes. Play around with a few colour schemes. Look at the clustering status of nodes that are close together in the network.  
 > (read the tips below)
 {:. challenge}

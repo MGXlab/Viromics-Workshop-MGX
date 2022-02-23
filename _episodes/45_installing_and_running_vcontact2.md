@@ -12,8 +12,8 @@ keypoints:
 - "We're running vContact2 over lunch because it takes around an hour to finish"
 
 ---
-Another way to visualise genome similarity based on gene sharing is by graphing 
-them as networks. [Vcontact2](https://www.nature.com/articles/s41587-019-0100-8) 
+Another way to visualise genome similarity based on gene sharing is by graphing
+them as networks. [Vcontact2](https://www.nature.com/articles/s41587-019-0100-8)
 is a popular tool perform taxonomic classification that uses gene sharing
 networks.
 
@@ -24,12 +24,12 @@ cut-offs to decide whether genomes are similar enough to be considered as belong
 For more information please read the [Vcontact2 paper ](https://www.nature.com/articles/s41587-019-0100-8)
 or [repository](https://bitbucket.org/MAVERICLab/vcontact2/).
 
-We will start vContact2 before lunch because it takes ~1 hour to run for our dataset. In the afternoon analyse the output.
+We will start vContact2 before lunch because it takes ~1 hour to run for our dataset. In the afternoon we will analyse the output.
 
 
 ### 0. Install Vcontact2
 Installing vcontact2 is a bit of a mess due to some dependencies, so we will create
-a separate conda enviroment. Open a new terminal and do the following:
+a separate conda environment. Open a new terminal and do the following:
 
 ```
 # create a new conda environment
