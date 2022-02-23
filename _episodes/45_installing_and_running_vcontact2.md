@@ -12,9 +12,10 @@ keypoints:
 - "We're running vContact2 over lunch because it takes around an hour to finish"
 
 ---
-Another way to visualise genome similarity based on gene sharing is by graphing
-them as networks. [Vcontact2](https://www.nature.com/articles/s41587-019-0100-8) is a very popular tool to create gene sharing
-networks and taxonomic annotation of virus with non-eukaryotic hosts.
+Another way to visualise genome similarity based on gene sharing is by graphing 
+them as networks. [Vcontact2](https://www.nature.com/articles/s41587-019-0100-8) 
+is a popular tool perform taxonomic classification that uses gene sharing
+networks.
 
 In short, Vcontact2 uses a two step clustering approach to first cluster proteins
 into protein clusters (PCs, similar to what you did in day 3) and then
