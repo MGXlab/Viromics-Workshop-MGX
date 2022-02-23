@@ -11,46 +11,97 @@ keypoints:
 - ""
 
 ---
-### Add to day 3:
-This are proteins coming from a reference set that we will use tomorrow. Add them to your already predicted proteins and annotate them with a function...
 
-### Step 0. Activate conda environment
+As we discussed this morning, we can infer the evolutionary history of certain
+genes to explain how similar viruses relate to each other. There are not single copy,
+universal marker genes for all the viruses, but since our samples were metaviromes
+from the human gut, and this consists mostly of bacteriophages, we can use the
+large subunit of the terminase (TerL) gene to study how they are related. The TerL
+gene, present in all members of the _Caudovirales_, pump the genome inside an empty
+procapsid shell during virus maturation by using both enzymatic activities necessary
+for packaging in such viruses: the adenosine triphosphatase (ATPase) that powers
+DNA translocation and an endonuclease that cleaves the concatemeric genome at both
+initiation and completion of genome packaging.
+
+
+### Step 0. Activate environment and download software
 ```
+# Activate environment
 $ conda activate day4_phyl
+
+# Download Aliview for multiple sequence alignment inspection
+$ wget https://ormbunkar.se/aliview/downloads/linux/linux-versions-all/linux-version-1.28/aliview.tgz
+$ tar zxvf aliview.tgz
 ```
 
-### Step 1. Gather terminase proteins.
-Take the proteins that were annotated as "terminase large subunit" yesterday. Add the crassvirales terminases from `crassvirales_terl.faa`. (maybe add script to do this).
+### Step 1. Gather large terminase proteins from the bins and database
+First you need to gather the large terminase sequences from your bins and from the reference database. To do the latter, go to [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/) and follow steps below:
 
-### Step 2. Alignment
-Align the sequences using Mafft. Check the [Mafft manual](https://mafft.cbrc.jp/alignment/software/algorithms/algorithms.html).
-**Q:** Which method do you think best fits our data? Can you use one of the most accurate methods?
+1. Click on 'Find Data' and then in 'All viruses' (A).
+2. Select only RefSeq genomes (B).
+3. In the 'Proteins' section (C), write __terminase__ and select 'terminase large subunit' from the drop-down menu (D).
+4. Then, click 'Download' (E). Select 'Protein', 'Download all records', 'Build custom', and add 'Family', 'Genus' and 'Species' by clicking 'Add' (F).  
+5. Click 'Download' and save the file to `refseq_terl.faa`.
 
-### Step 3. Make the tree
-Use fasttree to construct the TerL phylogeny from the multiple sequence alignment (MSA).
+![Image]({{ page.root }}/fig/ncbi_virus.png)
 
-Use the script "create_itol_families_colors.py" to create an annotation file which you can use to decorate your tree. Once you have this, upload your treefile  to [iToL](https://itol.embl.de/). (explain a bit of iToL).
-Then, in the "Datasets" section upload your annotation file.
 
-**Q:** Can you explain what you see? Where do our (bins) terminases fall? Are there any long branches that seem out of place?
+After this, use the script `extract_random_refseq_terl.py`. This script reads the
+terminases FASTA file you just downloaded from RefSeq and creates a tabular file
+with the taxonomy information. You will use it later to annotate the tree. By default,
+it keeps all the TerL sequences (~2k), although you can downsize it to _n_ random
+sequences per family (look at the `n_random` option). Since RefSeq does not contain
+(yet) all the diversity of crassphages described so far, we provide you with the
+ `crassvirales_repr_terls.faa` file, with the terminases of representatives crassphages.
+Use this FASTA file with the option `--crassvirales_faa`, and its taxonomy annotation
+with `--crassvirales_summary`. Create two versions of this ouput file, one with all
+the RefSeq proteins and another downsized (you choose the value for `n_random`).
+
+~~~
+# download reference crassphages
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/crassvirales_repr_terls.faa
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/crassvirales_repr_terls.summary
+
+# process reference TerL sequences
+$ python extract_random_refseq_terl.py -f refseq_terl.faa \
+  -n <N_DOWNSIZE> -c crassvirales_repr_terls.faa \
+  -s crassvirales_repr_terls.summary -o refseq_crass_terl.faa \
+  -a refseq_crass_terl.annot
+~~~
+
+Now, to gather the large terminases annotated in the bins, you can use the python script `get_terl_bins.py`. Have a look at the help message to see the parameters you need. Save the results in `bins_terl.faa`.
+
+~~~
+# Run the script get the bins terminases
+$ python gather_terminases_bins.py ...
+~~~
+{: .language-bash}
+
+
+After this, use `cat` to merge RefSeq, Crassvirales and bins terminases in the file `bins_refseq_crass_terl.faa`..
+
+### Step 2. Multiple sequence alignment
+Align the sequences using the MAFFT software. Check the [manual](https://mafft.cbrc.jp/alignment/software/algorithms/algorithms.html) for more information.
+
+> ## Alignment algorithm
+> Have a look at the different algorithms available with MAFFT. __Which one do you
+> think best fits our data? Can you use one of the most accurate?__
+{: .challenge}
+
+### Step 3. Infer the TerL phylogeny
+Use `fasttree` to infer the TerL phylogeny from the multiple sequence alignment. Once
+finished, upload the tree to [iToL](https://itol.embl.de/). Add taxonomic annotation
+in the _Datasets_ section for a better understanding of the tree.
+
+> ## Alignment algorithm
+> - __Can you explain what you see? Where do our (bins) terminases fall? Are there any long branches that seem out of place?__
+{: .challenge}
 
 
 ### Step 4. Refine the tree
-Look at the multiple sequence alignment (MSA) with Aliview. Are there any sequences that seem out of place? If so, remove those sequences. Trim the MSA to remove positions with a high abundance of gaps using trimal and the -gt parameter.
+
+Look at the multiple sequence alignment (MSA) with Jalview as you did yesterday. **Are there any sequences that seem out of place?** If so, remove those sequences. Trim the MSA to remove positions with a high abundance of gaps using `trimal` and the `-gt` parameter.
 
 Use this trimmed MSA to construct the TerL phylogeny by repeating steps 2 and 3. Does this improve the tree?
 
-Look at your tree. Do you notice anything in particular that seems odd?
-
-
-Go to the ICVT website and download the podoviridae report (to do: find link). How did they determine the taxonomy for this group?
-
-
-**To do:**
-- make conda environments (Jeroen)
-- make script to gather terl proteins (step 1, Dani)
-- add nucleotide-based protein annotation to day 3 (???)
-- make script for iTol decoration (Dani)
-- add explanation of iTol (step3, Dani?)
-- add link to podoviridae report (Jeroen)
 {% include links.md %}
