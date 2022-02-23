@@ -8,7 +8,7 @@ keypoints:
 
 ---
 
-We will use [Prodigal](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2848648/) , a tool for "prokaryotic gene recognition and translation initiation site identification", to identiy putative protein coding genes in our phage contigs. I purposely quoted the title as this hints that the tool is not specificallly built for phage gene predcition but for prokayotes instead.
+We will use [Prodigal](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2848648/) , a tool for "prokaryotic gene recognition and translation initiation site identification", to identiy putative protein coding genes in our phage contigs. I purposely quoted the title as this hints that the tool is not specificallly built for phage gene predcition but for prokaryotes instead.
 
 > Why would Prodigal still perform well for phages?
 
