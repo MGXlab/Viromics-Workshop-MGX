@@ -94,7 +94,7 @@ bin_13||F1T1_NODE_28
 
 In the paper a modified version of Prodigal is used. Instead of modifying Prodigal we will use translation table 15 where TAG is considered a coding codon instead of a STOP(*).
 
-- __How do we tell Prodigal to use this translation table? (wiki)[https://github.com/hyattpd/prodigal/wiki]__
+- __How do we tell Prodigal to use this translation table? [wiki](https://github.com/hyattpd/prodigal/wiki)__
 
 (NOTE: using a different translation table is not supported in meta mode, so we have to use the normal gene prediction here)
 
