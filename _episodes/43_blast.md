@@ -3,13 +3,11 @@ title: "Homology based search"
 teaching: 0
 exercises: 30
 questions:
-- "Can we classify viral sequences with Blast?"
+- "If we classify our viral sequences with Blast, in which cases do you expect that blast sequence searches result in good hits? What would you do if your sequence hit different viral (or bacterial) sequences with low coverage of your query sequence, or low sequence identity with the hit?"
 objectives:
 - "Run megablast on viral contigs"
 keypoints:
-- "Only in a very limited number of cases will direct sequence searches result in good hits. This is because majority of uncultivated viral sequences have not been previously described. You might hit nothing at all, or perhaps hit different viral (or bacterial) sequences with low query coverage."
-- "Sometimes you might find a good hit, for example for the crAssphage bins. Of course, back when crAssphage was discovered these sequences weren't present in the database!"
-- "We need more sophisticated search strategies for assigning taxonomy to novel viral sequences"
+- "Sometimes you might find a good hit, for example for the crAssphage bins, or for many of the well-described viruses infecting humans. In other cases, we need more sophisticated search strategies to assign a given viral sequence to a previously described taxon."
 ---
 After you've assembled metagenomes (day 1) and identified putative viral contigs (day 2), you probably want to know which viruses you've recovered -- that is, assign taxonomy.
 The first thing you might want to do is check whether it is a known virus by searching for highly similar viruses in any of the databases. From day 2 you might remember that homology-based searches will only get you so far for identifying uncultivated viral sequences, as a large part of the virosphere is still uncharted. But if your virus has been sequenced & described before you probably want to know that, because it can save you a lot of time.
