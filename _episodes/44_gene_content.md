@@ -11,8 +11,7 @@ keypoints:
 
 ---
 
-Another way to classify your genomes is to cluster them based on the gene content of the genomes.
-For this we are going to use the MMSeqs2 protein clusters (PCs) you made in the previous day from your binned sequences.
+Another way to classify your genomes is to cluster them based on the gene content of the genomes. We will first visualize the protein content of the viral bins using a sort of heatmap that reflects the phylogenetic profiles of the different protein clusters generated on day 3. For this we are going to use the MMSeqs2 protein clusters (PCs) you made in the previous day from your binned sequences.
 
 First, open a terminal and make a new folder for today's results to keep things organised:
 
