@@ -12,12 +12,14 @@ keypoints:
 
 ---
 
-As we discussed this morning, we can infer the evolutionary history of certain
-genes to explain how similar viruses relate to each other. There are not single copy,
-universal marker genes for all the viruses, but since our samples were metaviromes
-from the human gut, and this consists mostly of bacteriophages, we can use the
-large subunit of the terminase (TerL) gene to study how they are related. The TerL
-gene, present in all members of the _Caudovirales_, pump the genome inside an empty
+As we discussed this morning, we can use the evolutionary history of certain genes to 
+address questions about the evolution and function of viruses. Although there are no
+universal marker genes for all the viruses, but many viral lineages share one or more
+marker genes that can be used for to assess relationships between the viruses carrying 
+them. Our samples were metaviromes from the human gut. Like many biomes, the human gut
+virome contains many bacteriophages, and we can use the large subunit of the terminase 
+(TerL) gene to study how they are related. The TerL
+gene, present in all members of the _Caudovirales_, pumps the genome inside an empty
 procapsid shell during virus maturation by using both enzymatic activities necessary
 for packaging in such viruses: the adenosine triphosphatase (ATPase) that powers
 DNA translocation and an endonuclease that cleaves the concatemeric genome at both
