@@ -54,9 +54,7 @@ Next we are going to run vContact2. Vcontact2 comes with a test dataset to verif
 it installed correctly, but because running this test takes ~1 hour we are going to
 skip it and directly test by analysing our own dataset.
 
-### 1. Prepare input files.
-
-> ## Task: Create vContact2 input files
+> ## Task 1: Create vContact2 input files
 > Read the [Vcontact2 manual](https://bitbucket.org/MAVERICLab/vcontact2/wiki/Home). What input do you need?
 Can you create these files?
 > > ## solution
@@ -67,9 +65,8 @@ Can you create these files?
 > {: .solution}
 {: .challenge}
 
-### 2. run Vcontact2 on the protein data.
 
-> ## Task: run Vcontact2
+> ## Task 2: run Vcontact2
 > Check the [Vcontact2 manual](https://bitbucket.org/MAVERICLab/vcontact2/wiki/Home) to find out how to do this.
 > > ## solution
 > > From within the vcontact environment, run:
