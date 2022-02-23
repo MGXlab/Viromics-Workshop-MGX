@@ -57,7 +57,7 @@ then
 
 `install.packages("insect")`
 
-The installation might take a couple of minutes so in the meantime open a new terminal, activate the same environment (`conda activate day3`) and continue with the steps below
+The installation might take a couple of minutes so in the meantime open a new terminal, activate the same environment (`conda activate day3`) and continue with the next exercise
 
 
 
