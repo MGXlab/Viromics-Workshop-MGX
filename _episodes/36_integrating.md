@@ -29,10 +29,10 @@ library(dplyr)
 all.proteins <- read.table('all_prodigal_genes.txt') %>% pull(V1)
 
 # First load the original annotation
-single.anno <- read.table('prodigal_default/hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
+single.anno <- read.table('hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
 
 # Load the cluster anno too
-cluster.anno <- read.table('given/msa_hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
+cluster.anno <- read.table('msa_hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
 
 # Now lets clean the tables a bit
 single.anno <- single.anno %>% select(protein = query, target, annot, category)
