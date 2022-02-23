@@ -29,19 +29,24 @@ library(dplyr)
 all.proteins <- read.table('all_prodigal_genes.txt') %>% pull(V1)
 
 # First load the original annotation
-single.anno <- read.table('hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
+single.anno <- read.table('prodigal_default/hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
 
 # Load the cluster anno too
-cluster.anno <- read.table('msa_hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
+cluster.anno <- read.table('given/msa_hhsearch_results.txt', comment.char = '', sep = '\t', header = T, na.strings = "")
 
-# Now lets clean the tables a bit 
+# Now lets clean the tables a bit
 single.anno <- single.anno %>% select(protein = query, target, annot, category)
 cluster.anno <- cluster.anno %>% select(protein = member, target, annot, category, cluster.ref = reference)
 
+# Change datatype
+single.anno$annot <- as.character(single.anno$annot)
+cluster.anno$annot <- as.character(cluster.anno$annot)
+
 # Join them
-res <- cluster.anno %>% 
-  filter(grepl('bin_', protein)) %>% 
-  left_join(single.anno, by = 'protein', suffix = c('cluster', 'single')) 
+res <- cluster.anno %>%
+  filter(grepl('bin_', protein)) %>%
+  left_join(single.anno, by = 'protein', suffix = c('cluster', 'single')) %>%
+  mutate(protein = as.vector(protein))
 
 # Cluster search found things that were not found by single
 cluster.better <- res %>% filter(is.na(annotsingle) & !is.na(annotcluster))
@@ -55,13 +60,13 @@ dif.annot <- res %>%
   filter(annotsingle != annotcluster)
 
 # Consensus annotation
-conc.annot <- res %>% 
+conc.annot <- res %>%
   mutate(annot = case_when(
     is.na(annotsingle) & !is.na(annotcluster) ~ annotcluster,
     is.na(annotcluster) & !is.na(annotsingle) ~ annotsingle,
     !is.na(annotcluster) & !is.na(annotsingle) ~ annotsingle,
     TRUE ~ 'NA'
-))
+  ))
 
 # What did we actually annotate (including unknown)
 annotated.proteins <- conc.annot %>% filter(!is.na(annot)) %>% pull(protein)
