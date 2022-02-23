@@ -6,7 +6,7 @@ questions:
 - "Did we successfully run Vcontact2?"
 
 ---
-Check the terminal to see if vContact2 finished successfully. If not, ignore this for now and first move to the next lesson.
+Check the terminal to see if vContact2 finished successfully.
 
 
 {% include links.md %}
