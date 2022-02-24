@@ -50,13 +50,20 @@ Which sequences are included in the output?
 
 > ## Step 2: Load network in Cytoscape
 > Open Cytoscape with the desktop shortcut. Cytoscape has a graphical interface that might be a bit overwhelming at first.
-> - Follow steps 7-10 from this [manual](https://www.protocols.io/view/applying-vcontact-to-viral-sequences-and-visualizi-x5xfq7n) to load the network and annotation file into Cytoscape.
->
-> - Change the network layout:  
+> - Follow steps 7-10 from this [manual](https://www.protocols.io/view/applying-vcontact-to-viral-sequences-and-visualizi-x5xfq7n) to load the network file into Cytoscape.
+> - after you've removed the duplicate edges and self loops (see manual linked above), load the `gene_to_genome_overview.csv` file by file > import > table from file and selecting it. In the window that pops up please select the following (see image):
+> - add to a selected network
+> - import data as Node table columns
+> - click genome in Preview and select the key icon
+> If this all worked correcly, you should now have information about the nodes in the "node table" (E in the second figure below)
+{: .challenge}
+
+![Image]({{ page.root }}/fig/day4/cyto3.png)
+
+> ## Step 3: Change the network layout:  
 > 'Layout > Edge-weighted Spring Embedded layout', and select the column with the numeric data (probably column 3).
 > This places genomes that share more protein clusters closer together.
 {: .challenge}
-
 
 > ## Step 3: Explore the data and explain what you see.
 > Take a moment to look at what you see. Why are the networks and nodes organised like this?
