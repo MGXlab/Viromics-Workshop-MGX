@@ -59,9 +59,14 @@ skip it and directly test by analysing our own dataset.
 Can you create these files?
 > > ## solution
 > > You need two files:
-> > a protein fasta file with unique protein ids
-> > a gene-to-genome mapping file with the following content:
-> >
+> > 1. A FASTA-formatted amino acid file.
+> > 2. A "gene-to-genome" mapping file, in either tsv (tab)- or csv (comma)-separated format.
+> > ~~~
+> > echo "protein_id,contig_id,keywords" >> gene-to-genome.csv
+> > cat proteins_bins.faa | grep ">" | cut -f 1 -d " "  | sed 's/^>//g' > protein_ids.csv
+> > cat protein_ids.csv | sed 's/_[0-9]*$//g' >contig_ids.csv
+> > paste -d , protein_ids.csv contig_ids.csv >> gene_to_genome.csv 
+> > ~~~
 > {: .solution}
 {: .challenge}
 
