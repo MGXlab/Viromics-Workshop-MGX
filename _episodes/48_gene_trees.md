@@ -92,5 +92,11 @@ $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/
 > - __Where do our (bins) terminases fall?__
 {: .challenge}
 
+> ## Viral families in the tree
+> - __Do the families cluster, and can you explain why?__
+>
+> _Check [this taxonomy proposal](https://talk.ictvonline.org/files/proposals/taxonomy_proposals_prokaryote1/m/bact04/12849) from ICTV and [Turner et al., 2021](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8003253/)_
+{: .challenge}
+
 
 {% include links.md %}
