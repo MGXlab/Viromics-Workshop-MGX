@@ -60,9 +60,9 @@ Can you create these files?
 > > ## solution
 > > You need two files:
 > > 1. A FASTA-formatted amino acid file.
-> > 2. A "gene-to-genome" mapping file, in either tsv (tab)- or csv (comma)-separated format.
+> > 2. A "gene_to_genome" mapping file, in either tsv (tab)- or csv (comma)-separated format.
 > > ~~~
-> > echo "protein_id,contig_id,keywords" >> gene-to-genome.csv
+> > echo "protein_id,contig_id,keywords" >> gene_to_genome.csv
 > > cat proteins_bins.faa | grep ">" | cut -f 1 -d " "  | sed 's/^>//g' > protein_ids.csv
 > > cat protein_ids.csv | sed 's/_[0-9]*$//g' >contig_ids.csv
 > > paste -d , protein_ids.csv contig_ids.csv >> gene_to_genome.csv 
@@ -76,7 +76,7 @@ Can you create these files?
 > > ## solution
 > > From within the vcontact environment, run:
 > > ```
-> > vcontact2 --raw-proteins /path/to/proteinfile.faa --rel-mode 'Diamond' --proteins-fp /path/to/gene-to-genome.csv --db 'ProkaryoticViralRefSeq94-Merged' --pcs-mode MCL --vcs-mode ClusterONE --c1-bin /path/to/clusterone --output-dir /path/to/output/dir
+> > vcontact2 --raw-proteins /path/to/proteinfile.faa --rel-mode 'Diamond' --proteins-fp /path/to/gene_to_genome.csv --db 'ProkaryoticViralRefSeq94-Merged' --pcs-mode MCL --vcs-mode ClusterONE --c1-bin /path/to/clusterone --output-dir /path/to/output/dir
 > >```
 > {: .solution}
 {: .challenge}
