@@ -1,8 +1,8 @@
 ---
 start: true
 title: "Track alpha and beta diversity dynamics of viral/microbial communities"
-teaching: 30
-exercises: 120
+teaching: 60
+exercises: 0
 questions:
 - "What is compositional data?"
 - "How to do compositional data analysis?"
