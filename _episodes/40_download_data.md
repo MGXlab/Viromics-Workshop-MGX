@@ -17,5 +17,17 @@ For today we will need the following datasets from the previous days:
 Please check if you can locate these files. If didn't get that far on the previous
 days and as a backup we also provide the files for you to download:
 
-/link/to/downloads
+~~~
+# binned sequences
+$ wget https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_4/bins_fasta.zip
+
+# predicted protein sequences
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/proteins_bins.faa
+
+# protein annotations
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/proteins_bins_annotation.txt
+~~~
+{: .language-bash}
+
+
 {% include links.md %}

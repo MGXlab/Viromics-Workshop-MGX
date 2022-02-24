@@ -1,7 +1,7 @@
 ---
 title: "Phylogeny based on marker genes"
-teaching: 0
-exercises: 60
+teaching: 10
+exercises: 50
 questions:
 - "Can we use marker genes to infer phylogeny and taxonomy?"
 objectives:
@@ -28,8 +28,9 @@ initiation and completion of genome packaging.
 
 #### Activate environment
 ~~~
-# Download and activate environment
-$ wget
+# Download, create and activate environment
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/day4_phyl_env.txt
+$ conda create --name day4_phyl --file day4_phyl_env.txt
 $ conda activate day4_phyl
 ~~~
 {: .language-bash}
@@ -44,6 +45,7 @@ parameters you need. Save the results in `bins_terl.faa`.
 
 ~~~
 # Run the script get the bins terminases
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/get_terl_genes.py
 $ python gather_terminases_bins.py ...
 ~~~
 {: .language-bash}
@@ -55,10 +57,10 @@ these sequences and merge them with TerL you just extracted from the bins.
 
 ~~~
 # Download reference set
-$ wget
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/ictv_crass_terl.faa
 
-# merge both bins and reference sets
-$ cat  >  bins_ictv_crass_terl.faa
+# merge bins and reference sets
+$ cat bins_terl.faa ictv_crass_terl.faa >  bins_ictv_crass_terl.faa
 ~~~
 {: .language-bash}
 
@@ -78,11 +80,11 @@ Once MAFFT has finished, use `trimal` remove positions in the alignment with gap
 ### Infer the TerL phylogeny
 Use `fasttree` to infer the TerL phylogeny from the multiple sequence alignment. Once
 finished, upload the tree to [iToL](https://itol.embl.de/). Add taxonomic annotation
-in the _Datasets_ section for a better understanding of the tree.
+(`itol_ictv_crass_colors.txt`) in the _Datasets_ section for a better understanding of the tree.
 
 ~~~
 # Download reference set annotation
-$ wget
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/itol_ictv_crass_colors.txt
 ~~~
 {: .language-bash}
 
