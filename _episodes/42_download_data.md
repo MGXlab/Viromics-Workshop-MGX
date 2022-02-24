@@ -28,6 +28,10 @@ $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/
 
 # MMSeqs2 clusters
 $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/refseq_clusters.tsv
+
+# Vcontact2 output
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/c1.ntw
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/genome_by_genome_overview.csv
 ~~~
 {: .language-bash}
 
