@@ -46,7 +46,7 @@ parameters you need. Save the results in `bins_terl.faa`.
 ~~~
 # Run the script get the bins terminases
 $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/get_terl_genes.py
-$ python gather_terminases_bins.py ...
+$ python get_terl_genes.py ...
 ~~~
 {: .language-bash}
 
@@ -88,8 +88,8 @@ $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/
 ~~~
 {: .language-bash}
 
-> ##
-> - __Can you explain what you see? Where do our (bins) terminases fall?__
+> ## Bins in the tree
+> - __Where do our (bins) terminases fall?__
 {: .challenge}
 
 
