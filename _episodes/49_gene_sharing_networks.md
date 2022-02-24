@@ -18,7 +18,12 @@ keypoints:
 ### 0. Preparations
 
 If you didn't successfully finish running vcontact2 please download the vContact2 data from here:
-`FILL IN`
+
+```
+# Vcontact2 output
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/c1.ntw
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/genome_by_genome_overview.csv
+```
 
 > ## Task: Check vContact2 output files
 > Check the [vContact2 manual](https://bitbucket.org/MAVERICLab/vcontact2/wiki/Home#output-files) to see
