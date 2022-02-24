@@ -65,7 +65,8 @@ Which sequences are included in the output?
 > This places genomes that share more protein clusters closer together.
 {: .challenge}
 
-> ## Step 3: Explore the data and explain what you see.
+
+> ## Step 4: Explore the data and explain what you see
 > Take a moment to look at what you see. Why are the networks and nodes organised like this?
 > Inspect a few nodes. Play around with a few colour schemes. Look at the clustering status of nodes that are close together in the network.  
 > (read the tips below)
