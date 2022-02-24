@@ -25,6 +25,9 @@ $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/
 
 # protein annotations
 $ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/proteins_bins_annotation.txt
+
+# MMSeqs2 clusters
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/refseq_clusters.tsv
 ~~~
 {: .language-bash}
 
