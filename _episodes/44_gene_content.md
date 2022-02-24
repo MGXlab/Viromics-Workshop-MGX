@@ -72,7 +72,7 @@ Select Accession, Species, Genus, Family, Length, Protein, and Accession with ve
 Finally click Download. Downloading might take long, so as a backup we've also included the file in the Github repo:
 ~~~
 # Download the metadata from github:
-$ wget path/to/file/on/github/sequences_bac.tsv
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/sequences_bac.csv
 ~~~
 
 >## Question 2: Clustering contigs based on shared protein clusters
