@@ -1,4 +1,5 @@
 ---
+start: True
 title: "Install R package"
 teaching: 0
 exercises: 10
@@ -16,5 +17,5 @@ Next, install Tidyverse:
 install.packages('tidyverse')
 ~~~
 
-While Tidyverse is installing please continue with the next lesson.
+While Tidyverse is installing please listen to the lecture. 
 {% include links.md %}
