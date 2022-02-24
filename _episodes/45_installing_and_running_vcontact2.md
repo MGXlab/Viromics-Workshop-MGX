@@ -47,7 +47,7 @@ $ conda install -c bioconda numpy=1.19.5
 # Install ClusterONE
 # Please remember where you put it, as you need to specify the path to cluster one when running vcontact2.
 # cd /path/to/viromics/folder
-wget -no-check-certificate https://paccanarolab.org/static_content/clusterone/cluster_one-1.0.jar
+wget --no-check-certificate https://paccanarolab.org/static_content/clusterone/cluster_one-1.0.jar
 ```
 
 Next we are going to run vContact2. Vcontact2 comes with a test dataset to verify if
