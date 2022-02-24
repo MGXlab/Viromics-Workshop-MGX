@@ -27,7 +27,7 @@ please feel free to read along and make your own script.
 
 ~~~
 # Download the script from github:
-$ wget path/to/file/on/github/clustering.R
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/clustering.R
 ~~~
 
 Tidyverse should have installed by now: go back to Rstudio and check.
