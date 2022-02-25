@@ -175,34 +175,16 @@ Aitchisin and Bray-Curtis distances only take ASV abundance into account. UniFra
 version includes ASV abundance. Unweighted UniFrac only considers ASVs in terms
 of presence/absence. Therefore, unweighted UniFrac is CoDA-compatible, but the
 weighted version is not.
-We'll use the phyloseq package to calculate UniFrac distance. First, we’ll load the
-phyloseq object we made in Alpha Diversity:
-
-~~~
-# make a phyloseq object with filtered ASV abundance table and taxonomy table
-counts_filter <- t(as.data.frame(pond_filter$data))
-taxonomy_filter <- taxonomy[row.names(counts_filter),]
-
-pond_filter_phyloseq <- phyloseq(
-otu_table(counts_filter, taxa_are_rows = T),
-tax_table(as.matrix(taxonomy_filter)),
-sample_data(sample_data),
-phy_tree(tree)
-)
-save(pond_phyloseq, file = "data/pond_filter_phyloseq.Rdata")
-~~~
-{: .language-r}
-
-Now, we’ll use the distance() function from `phyloseq` to calculate weighted and unweighted
+We'll use the phyloseq package to calculate UniFrac distance. F we’ll use the distance() function from `phyloseq` to calculate weighted and unweighted
 UniFrac:
 
 ~~~
 # calculate weighted unifrac, convert to matrix, and save result
-weighted <- distance(pond_filter_phyloseq,
+weighted <- distance(pond_core_phyloseq,
   method = "wunifrac") %>%
   as.matrix()
 # calculate unweighted unifrac, convert to matrix, and save result
-unweighted <- distance(pond_filter_phyloseq,
+unweighted <- distance(pond_core_phyloseq,
   method = "uunifrac") %>%
   as.matrix()
 ~~~
