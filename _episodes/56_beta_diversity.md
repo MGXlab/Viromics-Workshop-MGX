@@ -1,7 +1,7 @@
 ---
 title: "Beta diversity"
 teaching: 0
-exercises: 60
+exercises: 30
 questions:
 - "What is beta diversity?"
 - "How to compare beta diversity between samples?"
