@@ -21,29 +21,26 @@ FeatureTable makes it very easy to filter data and make abundance plots.
 
 Load the featuretable object we saved before.
 ~~~
-```{r}
 load("data/pond_featuretable.Rdata")
-```
 ~~~
+{: .language-r}
 
 #### Abundance plots with FeatureTable
 Let's take a quick look at the data before we get started. Here's how you make a
 very basic plot of ASV abundance in each sample:
 
 ~~~
-```{r}
 pond_ft$plot()
-```
 ~~~
+{: .language-r}
 
 Onto the plot. First off, the x axis labels aren’t very informative right now. We can
 replace the axis labels with more meaningful names using `scale_x_discrete()`:
 
 ~~~
-```{r}
 pond_ft$plot() + scale_x_discrete(labels=pond_ft$sample_data$Sample)
-```
 ~~~
+{: .language-r}
 
 
 For now, let’s talk about the plot’s appearance. Notice that 
@@ -61,13 +58,13 @@ Let’s view ASVs in terms of relative abundance rather than raw counts. To do t
 FeatureTable, run this code:
 
 ~~~
-```{r}
 pond_ft$
 # applies the relative abundance function to samples before plotting
 map_samples(relative_abundance)$
 plot() + scale_x_discrete(labels=pond_ft$sample_data$Sample)
-```
 ~~~
+{: .language-r}
+
 Again we apply the FeatureTable plot function to pond_ft, but we have some new
 code in there. Now, `pond_ft` is run through the `map_samples(relative_abundance)`
 and the output of that function is fed to `plot()`. If you use the built-in help feature
@@ -83,7 +80,6 @@ the metadata, the obvious divisions of samples are by Month and Fraction. Let's 
 with Month:
 
 ~~~
-```{r}
 pond_ft$
 collapse_samples(Month)$
 map_samples(relative_abundance)$
@@ -93,8 +89,8 @@ legend_title = "ASV", # change legend title
 xlab = "Month", # change x axis title label
 ylab = "Relative Abundance", # change y axis title label
 axis.text.x = element_text(angle = 0)) # change x axis text angle
-```
 ~~~
+{: .language-r}
 
 First, we collapse the samples in `pond_ft` by month using `collapse_samples()`.
 Then, relative abundance is calculated for each month using `map_samples()`. Finally,
@@ -109,7 +105,6 @@ axis, but in this case we would prefer them to be in chronological order. To fix
 can use `scale_x_discrete()` again.
 
 ~~~
-```{r}
 pond_ft$
 collapse_samples(Month)$
 map_samples(relative_abundance)$
@@ -120,8 +115,8 @@ ylab = "Relative Abundance",
 axis.text.x = element_text(angle = 0)) +
 # reorder x axis labels
 scale_x_discrete(limits=c("October", "November", "December"))
-```
 ~~~
+{: .language-r}
 
 Make a similar chart for size fraction. Are there possible differences in the microbial
 community based on size fraction?
@@ -131,7 +126,6 @@ We know that we should transform the raw counts to centered-log ratios when deal
 Now let’s view ASVs in terms of centered-log ratio abundance in the class level and compare the clr abundance distribution with absolute and relative abundance using heatmaps.
 
 ~~~
-```{r}
 pond_class_clr <- pond_ft$collapse_features(Class)$replace_zeros(use_cmultRepl = TRUE,
                                               method = "GBM")$clr()$data
 rownames(pond_class_clr) <- pond_class_clr$sample_data$Sample
@@ -148,8 +142,8 @@ relative_heatmap <- Heatmap(pond_class_relative)
 absolute_heatmap
 relative_heatmap
 clr_heatmap
-```
 ~~~
+{: .language-r}
 
 
 ## Filtering ASVs
@@ -163,13 +157,11 @@ appear in only a few samples.
 Let’s include only taxa with more than 10 reads (on average) in at least 10% samples.
 
 ~~~
-```{r}
 pond_core_phyloseq <- phyloseq_filter_prevalence(pond_phyloseq, prev.trh = 0.1, abund.trh = 10, abund.type = "mean", threshold_condition = "AND")
 print(pond_core_phyloseq) # should have 24 samples and 1842 features
 save(pond_core_phyloseq, file = "data/pond_core_phyloseq.Rdata")
-
-```
 ~~~
+{: .language-r}
 
 In the above examples, I picked 10 for the detection limit (i.e. an ASV with a count of
 less than 5 will be removed), but it's an arbitrary cutoff. That being said, any detection

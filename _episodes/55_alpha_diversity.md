@@ -42,7 +42,6 @@ Before we get to the plotting, here’s a way to make sure that the samples are 
 in chronological order.
 
 ~~~
-```{r}
 # make a vector with the samples in the desired plotting order
 sample_order <- c("Oct_1_1", "Oct_1_2", "Oct_1_3", "Oct_1_4",
 "Oct_02_1", "Oct_02_2", "Oct_02_3", "Oct_02_4", "Nov_1_1", "Nov_1_2",
@@ -55,12 +54,11 @@ as.character()
 # use factor() to apply levels to the Sample column
 pond_phyloseq@sam_data$Sample <- factor(pond_phyloseq@sam_data$Sample,
 levels = sample_order)
-```
 ~~~
+{: .language-r}
 
 #### Plot alpha diversity using phyloseq
 ~~~
-```{r}
 # make and store a plot of observed otus in each sample
 # plot_richness() outputs a ggplot plot object
 observed_otus_plot <- plot_richness(pond_phyloseq,
@@ -74,8 +72,8 @@ observed_otus_plot <- plot_richness(pond_phyloseq,
   labs(y = "Observed ASVs")
  
 observed_otus_plot
-```
 ~~~
+{: .language-r}
 
 >## Challenge: Make alpha diversity plots of Chao1, Shannon, and Simpson
 > Change the value in "measures" to plot Chao1, Shannon and Simpson.
@@ -83,7 +81,6 @@ observed_otus_plot
 
 #### Plot alpha diversity using Hill Numbers
 ~~~
-```{r}
 shannon <- estimate_richness(pond_phyloseq,
 measures = c("Shannon"))
 hill_shannon <- sapply(shannon, function(x) {exp(x)}) %>% as.matrix()
@@ -106,8 +103,8 @@ hill_shannon_plot <- ggplot(data = hill_shannon_meta) +
   scale_x_discrete(limits = sample_order)
   
 hill_shannon_plot
-```
 ~~~
+{: .language-r}
 
 >## Challenge: Plot alpha diversity using Hill Numbers from Simpson
 > 1. get the simpson index values from the phyloseq object and convert to a matrix.
@@ -124,7 +121,6 @@ You should run that last bit of code (the grid.arrange()) in the R console to ge
 plots to appear in the plots tab. From there, you can use the zoom feature to open up
 the plots in a new, bigger window.
 ~~~
-```{r}
 grid.arrange(observed_otus_plot,
 chao1_plot,
 shannon_plot,
@@ -132,8 +128,8 @@ simpson_plot,
 hill_shannon_plot,
 hill_simpson_plot,
 ncol = 2)
-```
 ~~~
+{: .language-r}
 
 >## Discussion: 
 > What do you see from the plot? What do the results of each index tell you about the diversity of the microbial community in each sample?
@@ -152,7 +148,6 @@ lengths of the branches of all members of a sample (or other group) on a phyloge
 We can calculate it using the `pd` function from the package picante.
 
 ~~~
-```{r}
 faiths <- pd(t(counts), # samples should be rows, ASVs as columns
   tree,
   include.root = F) # our tree is not rooted
@@ -169,8 +164,8 @@ faiths <- pd(t(counts), # samples should be rows, ASVs as columns
   y = "Faith's PD")
 
 faiths_plot
-```
 ~~~
+{: .language-r}
 
 ## Alpha diversity with Divnet
 
@@ -221,8 +216,8 @@ rownames(pond_class_counts) <- pond_ft$sample_data$Sample
 set.seed(20200318)
 # run DivNet
 divnet <- divnet(W = pond_class_counts, X = mm, tuning = "careful")
-```
 ~~~~
+{: .language-r}
 
 There are a few ways to input data to DivNet. creating a model matrix (like we
 did here) might be the easiest path if you want to include more than one independent
@@ -236,10 +231,9 @@ relative abundance plots.
 This next command will show you all the diversity metrics that DivNet calculated.
 
 ~~~
-```{r}
 divnet %>% names
-```
 ~~~
+{: .language-r}
 
 DivNet calculates a lot of different indices, including some beta diversity measures,
 but we’ll focus on Shannon and Simpson because they’re common in the literature
@@ -249,7 +243,6 @@ You can make plots with DivNet, but they're not the nicest, so we'll extract the
 Shannon and Simpson estimates and combine them with the metadata.
 
 ~~~
-```{r}
 # get the Shannon estimates as a data frame
 shannon_divnet <- divnet$shannon %>% # access the shannon section
 # use summary to get just the numbers
@@ -265,8 +258,8 @@ names(shannon_divnet)[names(shannon_divnet) == "sample_names"] <-
 # merge the Shannon data frame with the sample metadata
 shannon_divnet_meta <- merge(shannon_divnet, sample_data, by =
 "Sample")
-```
 ~~~
+{: .language-r}
 
 >## Challenge: Calculate simpson diversity using DivNet
 > Fill in the same process as above, but for simpson
@@ -275,7 +268,6 @@ shannon_divnet_meta <- merge(shannon_divnet, sample_data, by =
 
 Now, you can make some nice ggplots!
 ~~~
-```{r, fig.height=4, fig.width=10}
 shannon_divnet_plot <- shannon_divnet_meta %>%
   ggplot(aes(x = Sample,
   y = estimate,
@@ -306,8 +298,8 @@ simpson_divnet_plot <- simpson_divnet_meta %>%
 
 
 grid.arrange(shannon_divnet_plot, simpson_divnet_plot, ncol = 2)
-```
 ~~~
+{: .language-r}
 
 Note that I call the values produced by DivNet estimates, because the DivNet
 algorithm estimates the number of missing species over many iterations and
@@ -329,7 +321,6 @@ Gini-Simpson Index) (1 - D). If we subtract the DivNet Simpson estimate from 1 d
 plotting, we get an answer that looks more like the phyloseq results.
 
 ~~~
-```{r}
 simpson_divnet_meta %>%
   ggplot(aes(x = Sample,
   y = 1 - estimate, # convert Simpson from D to 1 - D
@@ -343,8 +334,8 @@ simpson_divnet_meta %>%
   ylab("Simpson's Index of Diversity (1 - D) Estimate") +
   scale_x_discrete(limits = sample_order) +
   theme(axis.text = element_text(angle = 45, hjust = 1))
-```
 ~~~
+{: .language-r}
 
 Now the pattern for Simpson is more similar to the phyloseq result and the Shannon
 result from DivNet. According to Simpson's Index of Diversity, the November samples
@@ -354,7 +345,6 @@ If we want to calculate Hill numbers (effective number of species, or really eff
 number of classes in this case) again, we can do it like this:
 
 ~~~
-```{r}
 shannon_divnet_hill <- shannon_divnet_meta %>%
   ggplot(aes(x = Sample,
   y = exp(estimate),
@@ -386,8 +376,8 @@ simpson_divnet_hill <- simpson_divnet_meta %>%
   theme(axis.text = element_text(angle = 90, hjust = 1))
 
 grid.arrange(shannon_divnet_hill, simpson_divnet_hill, ncol = 2)
-```
 ~~~
+{: .language-r}
 
 
 #### Significance testing

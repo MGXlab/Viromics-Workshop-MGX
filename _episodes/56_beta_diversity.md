@@ -35,7 +35,6 @@ Alpha Diversity lessons because we weren't dealing with statistics yet. We were
 purely getting a feel for our data.)
 
 ~~~
-```{r}
 # Include only taxa with more than 10 reads (on average) in at least 10% samples
 pond_core_phyloseq <- phyloseq_filter_prevalence(pond_phyloseq, prev.trh = 0.1, abund.trh = 10, abund.type = "mean", threshold_condition = "AND")
 print(pond_core_phyloseq) # should have 24 samples and 1842 features
@@ -51,15 +50,13 @@ pond_core_clr <- pond_core_ft$
   method = "GBM")$
   # Then take CLR with base 2
   clr()
-
-```
 ~~~
+{: .language-r}
 
 #### Perform PCA on the transformed data
 
 Use the $pca_biplot() command to make a PCA from a FeatureTable object:
 ~~~
-```{r}
 # perform PCA using the biplotr package and store it as object p
 p <- pond_core_clr$pca_biplot(use_biplotr = TRUE,
 # give biplotr access to sample metadata
@@ -70,8 +67,8 @@ arrows = FALSE,
 point_color = "Month")
 # plot the PCA you saved above
 p$biplot
-```
 ~~~
+{: .language-r}
 
 The biplotr package performs PCA using Euclidean distance. As mentioned in the
 [beta diversity](https://github.com/lingyi-owl/jena_workshop/blob/gh-pages/files/Diversity%20metrics.pdf) doc, 
@@ -91,7 +88,6 @@ don’t understand.
 
 ### Modify plots
 ~~~
-```{r}
 # access the PCA plot itself from the saved object
 p$plot_elem$biplot_chart_base +
   # plot the first and second principal components and
@@ -106,8 +102,8 @@ p$plot_elem$biplot_chart_base +
   theme_classic() +
   # change the plot title (to nothing, in this case)
   ggtitle("PCA of clr-transformed abundances")
-```
 ~~~
+{: .language-r}
 
 >## Discussion: 
 > What do you see from the plot? What does the PCA plot of clr-transformed abundances tell you about the microbial community diversity between samples?
@@ -125,7 +121,6 @@ therefore not CoDA friendly, but it's something you'll see a lot and will usuall
 the same general result as an Aitchison distance PCA.
 
 ~~~
-```{r}
 # Bray-Curtis can't be performed with negative numbers, so we need the
 # untransformed abundance values
 counts <- pond_core_ft$
@@ -137,8 +132,8 @@ counts <- pond_core_ft$
   arrows = FALSE)
   
 bc_pca$biplot
-```
 ~~~
+{: .language-r}
 
 The `vegdist()` command comes from the vegan package and can be used to
 calculate many types of distances (try `?vegdist()`).
@@ -149,7 +144,6 @@ FeatureTable object. Let’s clean up this PCA as well, though this time we will
 work slightly harder to unite all of the data.
 
 ~~~
-```{r}
 # join sample metadata with the principal component scores
 # the row names will match, so we can merge on those
 bc_pca_data <- merge(bc_pca$biplot$data,
@@ -168,8 +162,8 @@ bc_pca_data %>%
   xlab('PC1 (86.5)') + 
   ylab('PC2 (8.9)') +
   ggtitle("Bray-Curtis PCA")
-```
 ~~~
+{: .language-r}
 
 You may have noticed that the Bray-Curtis PCA axes explain more of the variation in
 the data than the axes in the euclidean/Aitchison PCA. That's a side effect of having
@@ -189,7 +183,6 @@ We'll use the phyloseq package to calculate UniFrac distance. First, we’ll loa
 phyloseq object we made in Alpha Diversity:
 
 ~~~
-```{r}
 # make a phyloseq object with filtered ASV abundance table and taxonomy table
 counts_filter <- t(as.data.frame(pond_filter$data))
 taxonomy_filter <- taxonomy[row.names(counts_filter),]
@@ -201,14 +194,13 @@ sample_data(sample_data),
 phy_tree(tree)
 )
 save(pond_phyloseq, file = "data/pond_filter_phyloseq.Rdata")
-```
 ~~~
+{: .language-r}
 
 Now, we’ll use the distance() function from `phyloseq` to calculate weighted and unweighted
 UniFrac:
 
 ~~~
-```{r}
 # calculate weighted unifrac, convert to matrix, and save result
 weighted <- distance(pond_filter_phyloseq,
   method = "wunifrac") %>%
@@ -217,14 +209,13 @@ weighted <- distance(pond_filter_phyloseq,
 unweighted <- distance(pond_filter_phyloseq,
   method = "uunifrac") %>%
   as.matrix()
-```
 ~~~
+{: .language-r}
 
 And now we can perform PCA on the UniFrac distances using biplotr and make some
 nice looking plots:
 
 ~~~
-```{r}
 weighted_pca <- pca_biplot(weighted, arrows = F)
 unweighted_pca <- pca_biplot(unweighted, arrows = F)
 # join sample metadata with the principal component scores
@@ -250,8 +241,8 @@ unweighted_pca_data %>%
   scale_color_manual(values = featuretable:::ft_palette$kelly[1:3]) +
   theme_classic() +
   ggtitle("Unweighted UniFrac")
-```
 ~~~
+{: .language-r}
 
 >## Discussion: 
 > What do you see from the plot? What does the PCA plot of weighted and unweighted Unifract tell you about the microbial community diversity between samples?

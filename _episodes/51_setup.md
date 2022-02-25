@@ -29,6 +29,7 @@ conda activate day5_env
 export LD_LIBRARY_PATH=/mnt/local/prakXXX/anaconda3/envs/day5_env/lib
 rstudio
 ~~~
+{: .language-bash}
 
 #### Install extra packages
 
@@ -37,7 +38,6 @@ In RStudio interface openned from the previous step, install the packages below.
 Download the [FeatureTable package](https://github.com/mooreryan/featuretable/releases/tag/v0.0.10) to your working directory.
 Install the package in RStudio using the scripts below. Skip updates when installing `breakaway`. It might take a while to install `breakaway`.
 ~~~
-```{r}
 # install featuretable
 install.packages("featuretable_0.0.10.tar.gz", repos = NULL)
 install.packages("remotes")
@@ -49,14 +49,13 @@ remotes::install_github("adw96/DivNet")
 remotes::install_github("mooreryan/biplotr")
 # install vmikk/metagMisc
 remotes::install_github("vmikk/metagMisc")
-```
 ~~~
+{: .language-r}
 
 #### Load packages
 
 Load packages in the order below to avoid conflicts.
 ~~~
-```{r}
 library(phyloseq)
 library(breakaway)
 library(DivNet)
@@ -73,8 +72,8 @@ library(ALDEx2)
 library(featuretable)
 library(ComplexHeatmap)
 library(metagMisc)
-```
 ~~~
+{: .language-r}
 
 R will throw an error if any of the packages are not installed.
 
@@ -99,6 +98,7 @@ wget https://raw.githubusercontent.com/lingyi-owl/jena_workshop/gh-pages/data/as
 # environment data by month table
 wget https://raw.githubusercontent.com/lingyi-owl/jena_workshop/gh-pages/data/env_data_by_month.txt
 ~~~
+{: .language-bash}
 
 #### Load data
 
@@ -110,7 +110,6 @@ Load the ASV count table, taxonomy table, and sample metadata using the `read.ta
 function:
 
 ~~~
-```{r}
 # ASV table with raw counts
 counts <- read.table("data/asv_count_table.txt",
 # tells the function that rows are separated by a tab
@@ -146,5 +145,5 @@ sample_data(sample_data),
 phy_tree(tree)
 )
 save(pond_phyloseq, file = "data/pond_phyloseq.Rdata")
-```
 ~~~
+{: .language-r}

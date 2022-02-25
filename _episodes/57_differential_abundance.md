@@ -14,10 +14,9 @@ keypoints:
 #### Load data
 We will use the core FeatureTable object we saved earlier for this task.
 ~~~
-```{r}
 load("data/pond_core_featuretable.Rdata")
-```
-
+~~~
+{: .language-r}
 
 ## Differential abundance
 In addition to wondering which ASVs vary in abundance with continuous variables
@@ -31,7 +30,7 @@ Unfortunately, ALDEx2 doesn't currently support testing more than two groups at
 once, so we'll have to test some combinations by hand. Luckily, the feature table
 makes it really easy to select samples based on metadata.
 
-```{r}
+~~~
 # October by fraction
 oct_one_ft  <-  pond_core_ft$keep_samples(Fraction == "1um" & Month ==
 "October")
@@ -57,12 +56,12 @@ nov_ft <- pond_core_ft$keep_samples(Month == "November")
 # December
 dec_ft <- pond_core_ft$keep_samples(Month == "December")
 ~~~
+{: .language-r}
 
 Let's start by comparing ASV abundances between the size fractions. We'll stick the
 two fraction tables back together, make a conditions vector, and run `ALDEx2`.
 
 ~~~
-```{r, message=FALSE}
 # combine the ASV tables from two fraction feature tables
 fraction <- rbind(one_ft$data, two_ft$data)
 # make a conditions vector so aldex knows which samples belong in each
@@ -73,8 +72,8 @@ aldex_fraction <- aldex(t(fraction), # aldex wants samples to be columns
 conds_fraction,
 test = "t", # use a t-test for diff. abundance
 effect = TRUE) # calculate ASV effect size
-```
 ~~~
+{: .language-r}
 
 If you look at the `aldex_fraction` table, you'll notice the columns have sort of weird
 names. Here's what they mean:
@@ -92,13 +91,12 @@ names. Here's what they mean:
 Now, let’s make some plots of the data.
 
 ~~~
-```{r}
 # plot the results
 par(mfrow=c(1,2)) # a graphical parameter that sets up the following plots to line up on one row and in two columns
 aldex.plot(aldex_fraction, type = "MA") # Bland-Altman style plot
 aldex.plot(aldex_fraction, type = "MW") # Effect plot
-```
 ~~~
+{: .language-r}
 
 The points on the plots can be interpreted in the same way. Each dot is an ASV. Red
 dots are ASVs with significantly different abundances in the two groups. Gray dots are
@@ -122,7 +120,6 @@ plots, but they are common (especially with ANCOM), so I’ll show you how to ma
 one.
 
 ~~~
-```{r}
 aldex_fraction %>%
 ggplot()+
 geom_point(aes(x = diff.btw,
@@ -136,8 +133,8 @@ title = "Volcano plot",
 x = "Median difference between groups",
 y = "Expected BH adjusted p-value") +
 theme_bw()
-```
 ~~~
+{: .language-r}
 
 Again, each point represents one ASV. ASVs to the left of x = 0 are more abundant in
 the 0.2μm fraction and ASVs to the right are more abundant in the 1μm fraction. The
@@ -148,12 +145,11 @@ but small effect sizes are less likely to be of biological interest.
 If you wanted to identify the ASVs in red in the Volcano plot, you can subset the
 `ALDEx2` table like this:
 ~~~
-```{r}
 fraction_effective_asvs <- subset(aldex_fraction, effect >= 1 | effect
 <= -1)
 dim(fraction_effective_asvs) # displays the table dimensions
-```
 ~~~
+{: .language-r}
 
 Looking at the table dimensions, we can see that there are 80 ASVs with an effect size
 >= 1 or <= -1 that would warrant further consideration.
