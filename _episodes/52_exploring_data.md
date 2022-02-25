@@ -163,7 +163,7 @@ save(pond_core_phyloseq, file = "data/pond_core_phyloseq.Rdata")
 {: .language-r}
 
 In the above examples, I picked 10 for the detection limit (i.e. an ASV with a count of
-less than 5 will be removed), but it's an arbitrary cutoff. That being said, any detection
+less than 10 will be removed), but it's an arbitrary cutoff. That being said, any detection
 limit is generally arbitrary. The minimum sample proportion is also fairly arbitrary. I
 picked it because it was small enough not to exclude an entire month or size fraction
 from analysis, but also big enough to filter out rarer OTUs.
