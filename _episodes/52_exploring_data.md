@@ -126,11 +126,6 @@ We know that we should transform the raw counts to centered-log ratios when deal
 Now let’s view ASVs in terms of centered-log ratio abundance in the class level and compare the clr abundance distribution with absolute and relative abundance using heatmaps.
 
 ~~~
-pond_class_clr <- pond_ft$collapse_features(Class)$replace_zeros(use_cmultRepl = TRUE,
-                                              method = "GBM")$clr()$data
-rownames(pond_class_clr) <- pond_class_clr$sample_data$Sample
-clr_heatmap <- Heatmap(pond_class_clr)
-
 pond_class_absolute <- pond_ft$collapse_features(Class)$data
 rownames(pond_class_absolute) <- pond_ft$sample_data$Sample
 absolute_heatmap <- Heatmap(pond_class_absolute)
@@ -138,6 +133,10 @@ absolute_heatmap <- Heatmap(pond_class_absolute)
 pond_class_relative <- pond_ft$collapse_features(Class)$map_samples(relative_abundance)$data
 rownames(pond_class_relative) <- pond_ft$sample_data$Sample
 relative_heatmap <- Heatmap(pond_class_relative)
+
+pond_class_clr <- pond_ft$collapse_features(Class)$replace_zeros(use_cmultRepl = TRUE,method = "GBM")$clr()$data
+rownames(pond_class_clr) <- pond_ft$sample_data$Sample
+clr_heatmap <- Heatmap(pond_class_clr)
 
 absolute_heatmap
 relative_heatmap
