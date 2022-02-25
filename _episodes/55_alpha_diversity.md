@@ -1,6 +1,6 @@
 ---
 title: "Alpha diversity"
-teaching: 0
+teaching: 30
 exercises: 60
 questions:
 - "What is alpha diversity?"
