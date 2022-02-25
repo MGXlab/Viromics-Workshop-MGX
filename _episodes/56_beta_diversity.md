@@ -147,9 +147,7 @@ work slightly harder to unite all of the data.
 # join sample metadata with the principal component scores
 # the row names will match, so we can merge on those
 bc_pca_data <- merge(bc_pca$biplot$data,
-  pond_ft$core_microbiome(min_sample_proportion =
-  0.25, detection_limit =
-  5)$sample_data,
+  pond_core_ft$sample_data,
   by = "row.names")
 # use ggplot2 to plot the scores with metadata
 bc_pca_data %>%
@@ -158,6 +156,7 @@ bc_pca_data %>%
   size = 3) +
   scale_color_manual(values = featuretable:::ft_palette$kelly[1:3]) +
   theme_classic() +
+ # add labels for the percentage of variance explained by each axis
   ggtitle("Bray-Curtis PCA")
 ~~~
 {: .language-r}
