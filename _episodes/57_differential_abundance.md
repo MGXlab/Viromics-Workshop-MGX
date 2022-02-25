@@ -1,7 +1,7 @@
 ---
 title: "Differential abundance"
 teaching: 0
-exercises: 60
+exercises: 30
 questions:
 - "Which features vary in abundance with categorical variables?"
 objectives:
