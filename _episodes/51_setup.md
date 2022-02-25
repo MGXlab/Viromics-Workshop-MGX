@@ -47,6 +47,8 @@ remotes::install_github("adw96/breakaway")
 remotes::install_github("adw96/DivNet")
 # install biplotr
 remotes::install_github("mooreryan/biplotr")
+# install vmikk/metagMisc
+remotes::install_github("vmikk/metagMisc")
 ```
 ~~~
 
@@ -70,6 +72,7 @@ library(ggdendro)
 library(ALDEx2)
 library(featuretable)
 library(ComplexHeatmap)
+library(metagMisc)
 ```
 ~~~
 
