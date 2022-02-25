@@ -158,9 +158,6 @@ bc_pca_data %>%
   size = 3) +
   scale_color_manual(values = featuretable:::ft_palette$kelly[1:3]) +
   theme_classic() +
- # add labels for the percentage of variance explained by each axis
-  xlab('PC1 (86.5)') + 
-  ylab('PC2 (8.9)') +
   ggtitle("Bray-Curtis PCA")
 ~~~
 {: .language-r}
