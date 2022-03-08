@@ -73,7 +73,7 @@ to create separate FASTA files for each bin, and save the results in `3_binning/
 $ conda activate day1_env
 
 # download the python script
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/create_fasta_bins.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/create_fasta_bins.py
 
 # Have a look at options
 $ python create_fasta_bins.py -h

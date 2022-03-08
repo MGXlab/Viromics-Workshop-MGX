@@ -17,7 +17,7 @@ Based on your experience so far, will this method be faster or slower than the t
 
 To setup VirFinder, first create the conda environment from *virfinder.yaml* (don't forget to deactivate the pprmeta environment if you are still using it).
 
-If you had trouble running it before lunch, you can download the updated environment [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_2/virfinder.yaml)
+If you had trouble running it before lunch, you can download the updated environment [here](https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_2/virfinder.yaml)
 
 Then, within the virfinder environment run rstudio. 
 

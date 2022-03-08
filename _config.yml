@@ -48,7 +48,7 @@ email: "team@carpentries.org"
 # template_repo: "https://github.com/carpentries/styles"
 # training_site: "https://carpentries.github.io/instructor-training"
 workshop_repo: "https://github.com/MGXlab/Viromics-Workshop-2022"
-workshop_site: "https://mgxlab.github.io/Viromics-Workshop-2022/"
+workshop_site: "https://mgxlab.github.io/Viromics-Workshop-MGX/"
 # cc_by_human: "https://creativecommons.org/licenses/by/4.0/"
 
 # Surveys.

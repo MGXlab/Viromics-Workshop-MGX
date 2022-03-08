@@ -21,8 +21,8 @@ If you didn't successfully finish running vcontact2 please download the vContact
 
 ```
 # Vcontact2 output
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/c1.ntw
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/genome_by_genome_overview.csv
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/c1.ntw
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/genome_by_genome_overview.csv
 ```
 
 > ## Task: Check vContact2 output files

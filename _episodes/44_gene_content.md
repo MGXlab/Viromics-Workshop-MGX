@@ -27,7 +27,7 @@ please feel free to read along and make your own script.
 
 ~~~
 # Download the script from github:
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/clustering.R
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day4/clustering.R
 ~~~
 
 Tidyverse should have installed by now: go back to Rstudio and check.
@@ -72,7 +72,7 @@ Select Accession, Species, Genus, Family, Length, Protein, and Accession with ve
 Finally click Download. Downloading might take long, so as a backup we've also included the file in the Github repo:
 ~~~
 # Download the metadata from github:
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/sequences_bac.csv
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/sequences_bac.csv
 ~~~
 
 >## Question 2: Clustering contigs based on shared protein clusters

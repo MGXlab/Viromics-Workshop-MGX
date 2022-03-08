@@ -88,7 +88,7 @@ Download the p-crassphage genome as follows:
 
 ~~~
 # download p-crassphage genome
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/crAssphage.fasta
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/crAssphage.fasta
 ~~~
 {: .language-bash}
 

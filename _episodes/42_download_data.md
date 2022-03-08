@@ -18,20 +18,20 @@ days and as a backup we also provide the files for you to download:
 
 ~~~
 # binned sequences
-$ wget https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_4/bins_fasta.zip
+$ wget https://github.com/MGXlab/Viromics-Workshop-MGX/raw/gh-pages/data/day_4/bins_fasta.zip
 
 # predicted protein sequences
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/proteins_bins.faa
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/proteins_bins.faa
 
 # protein annotations
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/proteins_bins_annotation.txt
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/proteins_bins_annotation.txt
 
 # MMSeqs2 clusters
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/refseq_clusters.tsv
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/refseq_clusters.tsv
 
 # Vcontact2 output
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/c1.ntw
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/genome_by_genome_overview.csv
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/c1.ntw
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/genome_by_genome_overview.csv
 ~~~
 {: .language-bash}
 

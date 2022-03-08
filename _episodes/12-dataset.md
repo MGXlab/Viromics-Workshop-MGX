@@ -23,7 +23,7 @@ the environment in your machine, and activate it.
 
 ~~~
 # download the file describing the conda environment
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/day1_env_file.txt
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/day1_env_file.txt
 
 # create the environment, call it day1_env
 $ conda create --name day1_env --file day1_env_file.txt
@@ -58,7 +58,7 @@ $ mkdir 0_raw-data
 $ cd 0_raw-data
 
 # download and unzip
-$ wget https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_1/Reyes_fasta.zip
+$ wget https://github.com/MGXlab/Viromics-Workshop-MGX/raw/gh-pages/data/day_1/Reyes_fasta.zip
 $ unzip Reyes_fasta.zip
 
 # show the first lines of a FASTA file

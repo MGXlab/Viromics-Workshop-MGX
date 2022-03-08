@@ -20,7 +20,7 @@ Today you will use different virus discovery tools and do a basic comparison of 
 
 **So, why not just install everything into one big global environment that can run everything?** We will focus on two reasons: compatibility and findability. The issue with findability is that sometimes, a tool will not "find" its dependency even though it is installed. To reuse the Python example: If you try to run a tool that requires Python 2, but your global environment's default Python version is Python 3.7, then the tool will not run properly, even if Python 2 is technically installed. In that case, you would have to manually change the Python version anytime you decide to run a different tool, which is tedious and messy. The issue with compatibility is that some tools will just plain uninstall versions of programs or packages that are incompatible with them, and then reinstall the versions that work for them, thereby "breaking" another tool (this might or might not have happened during the preparation of this course ;) ). To summarize: keeping tools in separate conda environments will can save you a lot of pain.
 
-First, download the conda environments for today from [here](https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_2/day2_envs.tar.gz) and use the file *deepvir.yaml* to create the conda environment for DeepVirFinder ([Ren et al. 2020](https://link.springer.com/article/10.1007/s40484-019-0187-4); [DeepVirFinder Github](https://github.com/jessieren/DeepVirFinder)).
+First, download the conda environments for today from [here](https://github.com/MGXlab/Viromics-Workshop-MGX/raw/gh-pages/data/day_2/day2_envs.tar.gz) and use the file *deepvir.yaml* to create the conda environment for DeepVirFinder ([Ren et al. 2020](https://link.springer.com/article/10.1007/s40484-019-0187-4); [DeepVirFinder Github](https://github.com/jessieren/DeepVirFinder)).
 
 ~~~
 # create the directory for today's tools and results
@@ -28,7 +28,7 @@ $ mkdir tools
 $ mkdir results
 
 # download and unzip the conda environemnts
-$ wget https://github.com/MGXlab/Viromics-Workshop-2022/raw/gh-pages/data/day_2/day2_envs.tar.gz
+$ wget https://github.com/MGXlab/Viromics-Workshop-MGX/raw/gh-pages/data/day_2/day2_envs.tar.gz
 $ tar zxvf day2_envs.tar.gz
 $ cd envs
 

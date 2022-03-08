@@ -83,7 +83,7 @@ merge the results into `1_assemblies/separate_assemblies/all_samples_scaffolds.f
 
 ~~~
 # download the python script
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/rename_scaffolds.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/rename_scaffolds.py
 
 # include sample name in scaffolds names
 $ python rename_scaffolds.py -d 1_assemblies/separate_assemblies
@@ -110,8 +110,8 @@ $ makeblastdb ...
 $ blastn ...
 
 # download anicalc.py and aniclust.py scripts
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/anicalc.py
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day1/aniclust.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/anicalc.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day1/aniclust.py
 
 # calculate pairwise ANI
 $ python anicalc.py ...

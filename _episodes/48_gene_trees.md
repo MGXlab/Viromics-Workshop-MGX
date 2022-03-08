@@ -29,7 +29,7 @@ initiation and completion of genome packaging.
 #### Activate environment
 ~~~
 # Download, create and activate environment
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/day4_phyl_env.txt
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day4/day4_phyl_env.txt
 $ conda create --name day4_phyl --file day4_phyl_env.txt
 $ conda activate day4_phyl
 ~~~
@@ -45,7 +45,7 @@ parameters you need. Save the results in `bins_terl.faa`.
 
 ~~~
 # Run the script get the bins terminases
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/code/day4/get_terl_genes.py
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/code/day4/get_terl_genes.py
 $ python get_terl_genes.py ...
 ~~~
 {: .language-bash}
@@ -57,7 +57,7 @@ these sequences and merge them with TerL you just extracted from the bins.
 
 ~~~
 # Download reference set
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/ictv_crass_terl.faa
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/ictv_crass_terl.faa
 
 # merge bins and reference sets
 $ cat bins_terl.faa ictv_crass_terl.faa >  bins_ictv_crass_terl.faa
@@ -84,7 +84,7 @@ finished, upload the tree to [iToL](https://itol.embl.de/). Add taxonomic annota
 
 ~~~
 # Download reference set annotation
-$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-2022/gh-pages/data/day_4/itol_ictv_crass_colors.txt
+$ wget https://raw.githubusercontent.com/MGXlab/Viromics-Workshop-MGX/gh-pages/data/day_4/itol_ictv_crass_colors.txt
 ~~~
 {: .language-bash}
 
